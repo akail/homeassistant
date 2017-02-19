@@ -11,15 +11,24 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
 
-  #  customize:
-  #    media_player.roku_5S4641298939:
-  #      friendly_name: Bedroom Roku
-  #    media_player.roku_5S464J298771:
-  #      friendly_name: Kitchen Roku
-
+  customize:
+    climate.linear_tbz48_thermostat_cooling_1_3_2:
+      friendly_name: Upstairs Cooling
+    climate.linear_tbz48_thermostat_heating_1_3_1:
+      friendly_name: Upstairs Heating
+    sensor.linear_tbz48_thermostat_temperature_3_1:
+      friendly_name: Upstairs Temp
+    climate.linear_tbz48_thermostat_cooling_1_4_2:
+      friendly_name: Downstairs Cooling
+    climate.linear_tbz48_thermostat_heating_1_4_1:
+      friendly_name: Downstairs Heating
+    sensor.linear_tbz48_thermostat_temperature_4_1:
+      friendly_name: Downstairs Temp
+    light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
+      friendly_name: Office Lamp Light
 
 # Show links to resources in log and frontend
-introduction:
+#introduction:
 
 # Enables the frontend
 frontend:
