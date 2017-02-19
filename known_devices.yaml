@@ -66,8 +66,8 @@ ipad:
 maggiesiphone:
   hide_if_away: false
   mac: F0:DB:E2:F1:3D:9A
-  name: Maggies-iPhone
-  picture:
+  name: Maggie
+  picture: /local/maggie.jpg
   track: true
   vendor: Apple, Inc.
 
@@ -76,5 +76,5 @@ f81edff12bbf:
   mac: F8:1E:DF:F1:2B:BF
   name: f81edff12bbf
   picture:
-  track: true
+  track: false
   vendor: Apple, Inc.
