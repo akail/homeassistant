@@ -1,16 +1,48 @@
 
-8c705a7ff05c:
+kitchen:
+  hide_if_away: false
+  mac: B8:A1:75:4B:0A:61
+  name: Kitchen
+  picture:
+  track: false
+  vendor: Roku, Inc.
+
+bedroom:
+  hide_if_away: false
+  mac: B8:A1:75:4B:0B:B1
+  name: Bedroom
+  picture:
+  track: false
+  vendor: Roku, Inc.
+
+tvroom:
+  hide_if_away: false
+  mac: 88:DE:A9:56:C1:D7
+  name: TVRoom
+  picture:
+  track: false
+  vendor: Roku, Inc.
+
+blackhawk:
   hide_if_away: false
   mac: 8C:70:5A:7F:F0:5C
-  name: 8c705a7ff05c
+  name: blackhawk
   picture:
   track: false
   vendor: Intel Corporate
 
-74d02b2b49d6:
+ipad:
+  hide_if_away: false
+  mac: E0:F5:C6:27:C4:E1
+  name: iPad
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+whiteowl:
   hide_if_away: false
   mac: 74:D0:2B:2B:49:D6
-  name: 74d02b2b49d6
+  name: whiteowl
   picture:
   track: false
   vendor: ASUSTek COMPUTER INC.
@@ -26,55 +58,15 @@ e03f4902bb20:
 hass_andrewphone:
   hide_if_away: false
   mac: FC:C2:DE:99:2D:BA
-  name: Andrew
+  name: hass
   picture: /local/andrewface.jpg
   track: true
   vendor:
 
-b8a1754b0bb1:
-  hide_if_away: false
-  mac: B8:A1:75:4B:0B:B1
-  name: b8a1754b0bb1
-  picture:
-  track: false
-  vendor: Roku, Inc.
-
-88dea956c1d7:
-  hide_if_away: false
-  mac: 88:DE:A9:56:C1:D7
-  name: 88dea956c1d7
-  picture:
-  track: false
-  vendor: Roku, Inc.
-
-b8a1754b0a61:
-  hide_if_away: false
-  mac: B8:A1:75:4B:0A:61
-  name: b8a1754b0a61
-  picture:
-  track: false
-  vendor: Roku, Inc.
-
-ipad:
-  hide_if_away: false
-  mac: E0:F5:C6:27:C4:E1
-  name: iPad
-  picture:
-  track: false
-  vendor: Apple, Inc.
-
-maggiesiphone:
+hass_maggiephone:
   hide_if_away: false
   mac: F0:DB:E2:F1:3D:9A
   name: Maggie
   picture: /local/maggie.jpg
   track: true
-  vendor: Apple, Inc.
-
-f81edff12bbf:
-  hide_if_away: false
-  mac: F8:1E:DF:F1:2B:BF
-  name: f81edff12bbf
-  picture:
-  track: false
-  vendor: Apple, Inc.
+  vendor:
