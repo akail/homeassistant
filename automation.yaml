@@ -1,0 +1,41 @@
+- alias: 'Rule 1 Light on in evening'
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-01:00:00'
+  condition:
+    - condition: time
+      after: '16:00:00'
+      before: '23:00:00'
+  action:
+    service: light.turn_on
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+
+- alias: 'Rule 1 Light off before bed'
+  trigger:
+    - platform: time
+      after: '16:00:00'
+  action:
+    service: light.turn_off
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+
+- alias: 'Rule 1 Light on in morning'
+  trigger:
+    - platform: time
+      after: '05:30:00'
+  action:
+    service: light.turn_on
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+
+- alias: 'Rule 1 Light off after sunrise'
+  trigger:
+    - platform: sun
+      event: sunrise
+      offset: '01:00:00'
+  action:
+    service: light.turn_off
+    entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
+
+
+
+
