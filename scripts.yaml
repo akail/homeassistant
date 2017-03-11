@@ -1,0 +1,8 @@
+  roku_sleeptimer:
+    sequence:
+    - delay: 01:00
+    - service: media_player.select_source
+      data: 
+        entity_id: media_player.tvroom
+        source: 'Home'
+

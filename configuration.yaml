@@ -76,6 +76,7 @@ device_tracker:
   - platform: nmap_tracker
     hosts: 192.168.1.0/24
     home_interval: 60
+    track_new_devices: no
   - platform: owntracks
   - platform: asuswrt
     host: 192.168.1.1
@@ -125,7 +126,10 @@ media_player:
 zwave:
   usb_path: /dev/ttyACM0
   config_path: /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/libopenzwave-0.3.2-py3.4-linux-armv7l.egg/config
+
 notify:
   - name: Hass
     platform: pushbullet
     api_key: !secret pushbullet_api_key
+
+script: !include scripts.yaml
