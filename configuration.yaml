@@ -78,11 +78,11 @@ device_tracker:
     home_interval: 60
     track_new_devices: no
   - platform: owntracks
-  - platform: asuswrt
-    host: 192.168.1.1
-    username: admin
-    password: !secret asus_password
-    protocol: telnet
+#  - platform: asuswrt
+#    host: 192.168.1.1
+#    username: admin
+#    password: !secret asus_password
+#    protocol: telnet
 
 mqtt:
   broker: localhost
