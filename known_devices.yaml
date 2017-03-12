@@ -58,7 +58,7 @@ e03f4902bb20:
 hass_andrewphone:
   hide_if_away: false
   mac: FC:C2:DE:99:2D:BA
-  name: hass
+  name: Andrew
   picture: /local/andrewface.jpg
   track: true
   vendor:
@@ -70,3 +70,27 @@ hass_maggiephone:
   picture: /local/maggie.jpg
   track: true
   vendor:
+
+00bb3aa18483:
+  hide_if_away: false
+  mac: 00:BB:3A:A1:84:83
+  name: 00bb3aa18483
+  picture:
+  track: false
+  vendor: Private
+
+margaretsmbp:
+  hide_if_away: false
+  mac: F8:1E:DF:F1:2B:BF
+  name: Margarets-MBP
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+retropie:
+  hide_if_away: false
+  mac: B8:27:EB:D2:C7:6B
+  name: retropie
+  picture:
+  track: false
+  vendor: Raspberry Pi Foundation
