@@ -1,0 +1,14 @@
+climate.linear_tbz48_thermostat_cooling_1_3_2:
+  friendly_name: Upstairs Cooling
+climate.linear_tbz48_thermostat_heating_1_3_1:
+  friendly_name: Upstairs Heating
+sensor.linear_tbz48_thermostat_temperature_3_1:
+  friendly_name: Upstairs Temp
+climate.linear_tbz48_thermostat_cooling_1_4_2:
+  friendly_name: Downstairs Cooling
+climate.linear_tbz48_thermostat_heating_1_4_1:
+  friendly_name: Downstairs Heating
+sensor.linear_tbz48_thermostat_temperature_4_1:
+  friendly_name: Downstairs Temp
+light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
+  friendly_name: Atrium Lamp Light
