@@ -12,26 +12,16 @@ homeassistant:
   time_zone: America/New_York
 
   customize: !include customize.yaml
-    climate.linear_tbz48_thermostat_cooling_1_3_2:
-      friendly_name: Upstairs Cooling
-    climate.linear_tbz48_thermostat_heating_1_3_1:
-      friendly_name: Upstairs Heating
-    sensor.linear_tbz48_thermostat_temperature_3_1:
-      friendly_name: Upstairs Temp
-    climate.linear_tbz48_thermostat_cooling_1_4_2:
-      friendly_name: Downstairs Cooling
-    climate.linear_tbz48_thermostat_heating_1_4_1:
-      friendly_name: Downstairs Heating
-    sensor.linear_tbz48_thermostat_temperature_4_1:
-      friendly_name: Downstairs Temp
-    light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
-      friendly_name: Atrium Lamp Light
 
 # Show links to resources in log and frontend
 #introduction:
 
 # Enables the frontend
 frontend:
+
+# recorder settings
+recorder:
+  purge_days: 7
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -61,16 +51,16 @@ sun:
 tts:
   platform: google
 
-sensor:
-  - platform: yr
-  - platform: darksky
-    api_key: !secret darksky_api_key
-    monitored_conditions:
-        - temperature
-  - platform: yahoo_finance
-    symbols:
-      - VFFVX
-      - PARFX
+sensor: !include sensor.yaml
+#  - platform: yr
+#  - platform: darksky
+#    api_key: !secret darksky_api_key
+#    monitored_conditions:
+#        - temperature
+#  - platform: yahoo_finance
+#    symbols:
+#      - VFFVX
+#      - PARFX
 
 device_tracker:
   - platform: nmap_tracker
@@ -78,11 +68,6 @@ device_tracker:
     home_interval: 60
     track_new_devices: no
   - platform: owntracks
-#  - platform: asuswrt
-#    host: 192.168.1.1
-#    username: admin
-#    password: !secret asus_password
-#    protocol: telnet
 
 mqtt:
   broker: localhost
@@ -125,7 +110,6 @@ media_player:
 
 zwave:
   usb_path: /dev/ttyACM0
-  config_path: /srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/libopenzwave-0.3.2-py3.4-linux-armv7l.egg/config
 
 notify:
   - name: Hass

@@ -57,11 +57,11 @@ e03f4902bb20:
 
 hass_andrewphone:
   hide_if_away: false
-  mac: FC:C2:DE:99:2D:BA
+  mac: 8C:EB:C6:AF:4A:52
   name: Andrew
   picture: /local/andrewface.jpg
   track: true
-  vendor:
+  vendor: HUAWEI TECHNOLOGIES CO.,LTD
 
 hass_maggiephone:
   hide_if_away: false
@@ -94,3 +94,76 @@ retropie:
   picture:
   track: false
   vendor: Raspberry Pi Foundation
+
+d4f46f402028:
+  hide_if_away: false
+  mac: D4:F4:6F:40:20:28
+  name: d4f46f402028
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+
+f4f951c42758:
+  hide_if_away: false
+  mac: F4:F9:51:C4:27:58
+  name: f4f951c42758
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+d850e69180a4:
+  hide_if_away: false
+  mac: D8:50:E6:91:80:A4
+  name: d850e69180a4
+  picture:
+  track: false
+  vendor: ASUSTek COMPUTER INC.
+
+14abc5008d1d:
+  hide_if_away: false
+  mac: 14:AB:C5:00:8D:1D
+  name: 14abc5008d1d
+  picture:
+  track: false
+  vendor: Intel Corporate
+
+obiwansipad:
+  hide_if_away: false
+  mac: F0:D1:A9:E8:E1:51
+  name: Obiwans-iPad
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+6c94f8cd5377:
+  hide_if_away: false
+  mac: 6C:94:F8:CD:53:77
+  name: 6c94f8cd5377
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+34a395d205ad:
+  hide_if_away: false
+  mac: 34:A3:95:D2:05:AD
+  name: 34a395d205ad
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+a85b785d5236:
+  hide_if_away: false
+  mac: A8:5B:78:5D:52:36
+  name: a85b785d5236
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+ecadb847b099:
+  hide_if_away: false
+  mac: EC:AD:B8:47:B0:99
+  name: ecadb847b099
+  picture:
+  track: false
+  vendor: Apple, Inc.

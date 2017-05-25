@@ -14,7 +14,7 @@
 - alias: 'Rule 1 Light off before bed'
   trigger:
     - platform: time
-      after: '16:00:00'
+      after: '22:30:00'
   action:
     service: light.turn_off
     entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2_0
