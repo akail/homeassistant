@@ -12,3 +12,5 @@ sensor.linear_tbz48_thermostat_temperature_4_1:
   friendly_name: Downstairs Temp
 light.linear_lb60z1_dimmable_led_light_bulb_level_2_0:
   friendly_name: Atrium Lamp Light
+light.__level_5_0:
+  friendly_name: Porch Light
