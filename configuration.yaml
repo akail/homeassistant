@@ -21,7 +21,9 @@ frontend:
 
 # recorder settings
 recorder:
-  purge_days: 7
+  purge_interval: 7
+  purge_keep_days: 7
+  db_url: sqlite:///data/haconfig/home_assistant.db
 
 http:
   # Uncomment this to add a password (recommended!)
@@ -52,32 +54,12 @@ tts:
   platform: google
 
 sensor: !include sensor.yaml
-#  - platform: yr
-#  - platform: darksky
-#    api_key: !secret darksky_api_key
-#    monitored_conditions:
-#        - temperature
-#  - platform: yahoo_finance
-#    symbols:
-#      - VFFVX
-#      - PARFX
 
 device_tracker:
   - platform: nmap_tracker
-    hosts: 192.168.1.0/24
+    hosts: 192.168.0.0/22
     home_interval: 60
     track_new_devices: no
-  - platform: owntracks
-
-mqtt:
-  broker: localhost
-  port: 8883
-  client_id: home-assistant-1
-  keepalive: 60
-  username: hass
-  password: !secret http_password
-  certificate: /etc/mosquitto/conf.d/ca.crt
-  protocol: 3.1
 
 zone:
   name: Home
@@ -102,11 +84,11 @@ zone 3:
 
 media_player:
   - platform: roku
-    host: 192.168.1.33
+    host: 192.168.2.29
   - platform: roku
-    host: 192.168.1.165
+    host: 192.168.2.30
   - platform: roku
-    host: 192.168.1.186
+    host: 192.168.2.38
 
 zwave:
   usb_path: /dev/ttyACM0
