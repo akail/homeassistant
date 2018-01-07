@@ -55,22 +55,6 @@ e03f4902bb20:
   track: false
   vendor: ASUSTek COMPUTER INC.
 
-hass_andrewphone:
-  hide_if_away: false
-  mac: 8C:EB:C6:AF:4A:52
-  name: Andrew
-  picture: /local/andrewface.jpg
-  track: true
-  vendor: HUAWEI TECHNOLOGIES CO.,LTD
-
-hass_maggiephone:
-  hide_if_away: false
-  mac: F0:DB:E2:F1:3D:9A
-  name: Maggie
-  picture: /local/maggie.jpg
-  track: true
-  vendor:
-
 00bb3aa18483:
   hide_if_away: false
   mac: 00:BB:3A:A1:84:83
@@ -199,3 +183,149 @@ f09fc211d707:
   picture:
   track: false
   vendor: PCS Systemtechnik GmbH
+
+b827eb955ff3:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:95:5F:F3
+  name: b827eb955ff3
+  picture:
+  track: false
+  vendor: Raspberry Pi Foundation
+
+f09fc211d709:
+  hide_if_away: false
+  icon:
+  mac: F0:9F:C2:11:D7:09
+  name: f09fc211d709
+  picture:
+  track: false
+  vendor: Ubiquiti Networks Inc.
+
+802aa8c08c0a:
+  hide_if_away: false
+  icon:
+  mac: 80:2A:A8:C0:8C:0A
+  name: 802aa8c08c0a
+  picture:
+  track: false
+  vendor: Ubiquiti Networks Inc.
+
+802aa8c08d66:
+  hide_if_away: false
+  icon:
+  mac: 80:2A:A8:C0:8D:66
+  name: 802aa8c08d66
+  picture:
+  track: false
+  vendor: Ubiquiti Networks Inc.
+
+802aa8938f67:
+  hide_if_away: false
+  icon:
+  mac: 80:2A:A8:93:8F:67
+  name: 802aa8938f67
+  picture:
+  track: false
+  vendor: Ubiquiti Networks Inc.
+
+484baabd5d81:
+  hide_if_away: false
+  icon:
+  mac: 48:4B:AA:BD:5D:81
+  name: 484baabd5d81
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+andrew_honor8:
+  hide_if_away: false
+  icon:
+  mac: 8C:EB:C6:AF:4A:52
+  name: Andrew
+  picture: /local/andrewface.jpg
+  track: true
+  vendor: HUAWEI TECHNOLOGIES CO.,LTD
+
+
+
+b827eb0bdc16:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:0B:DC:16
+  name: b827eb0bdc16
+  picture:
+  track: false
+  vendor: Raspberry Pi Foundation
+
+fcc2de9fe01a:
+  hide_if_away: false
+  icon:
+  mac: FC:C2:DE:9F:E0:1A
+  name: fcc2de9fe01a
+  picture:
+  track: false
+  vendor: Murata Manufacturing Co., Ltd.
+
+c8bcc88c54ed:
+  hide_if_away: false
+  icon:
+  mac: C8:BC:C8:8C:54:ED
+  name: c8bcc88c54ed
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+70dee2b2b257:
+  hide_if_away: false
+  icon:
+  mac: 70:DE:E2:B2:B2:57
+  name: 70dee2b2b257
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+0866987763c6:
+  hide_if_away: false
+  icon:
+  mac: 08:66:98:77:63:C6
+  name: 0866987763c6
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+38c9865c5e88:
+  hide_if_away: false
+  icon:
+  mac: 38:C9:86:5C:5E:88
+  name: 38c9865c5e88
+  picture:
+  track: false
+  vendor: Apple, Inc.
+
+e0319e35a30d:
+  hide_if_away: false
+  icon:
+  mac: E0:31:9E:35:A3:0D
+  name: e0319e35a30d
+  picture:
+  track: false
+  vendor: Valve Corporation
+
+maggie_iphone:
+  hide_if_away: false
+  icon:
+  mac: 48:4B:AA:BD:5D:81
+  name: Maggie
+  picture: /local/maggie.jpg
+  track: true
+  vendor:
+
+787b8a8935bb:
+  hide_if_away: false
+  icon:
+  mac: 78:7B:8A:89:35:BB
+  name: 787b8a8935bb
+  picture:
+  track: false
+  vendor: unknown

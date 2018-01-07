@@ -25,11 +25,18 @@ recorder:
   purge_keep_days: 7
   db_url: sqlite:///data/haconfig/home_assistant.db
 
+config:
+
 http:
   # Uncomment this to add a password (recommended!)
     api_password: !secret http_password
   # Uncomment this if you are using SSL or running in Docker etc
-  # base_url: example.duckdns.org:8123
+    base_url: example.duckdns.org
+    ssl_certificate: /etc/letsencrypt/live/hass.kail.io/fullchain.pem
+    ssl_key: /etc/letsencrypt/live/hass.kail.io/privkey.pem
+
+# enable map
+map:
 
 # Checks for available updates
 updater:
@@ -60,27 +67,9 @@ device_tracker:
     hosts: 192.168.0.0/22
     home_interval: 60
     track_new_devices: no
+  - platform: owntracks_http
 
-zone:
-  name: Home
-  latitude: 33.479498
-  longitude: -81.716718
-  radius: 100
-  icon: mdi:account-multiple
-
-zone 2:
-  name: SRS
-  latitude: 33.268602
-  longitude: -81.620638
-  radius: 15000
-  icon: mdi:flask-outline
-
-zone 3:
-  name: CHOG
-  latitude: 33.471181
-  longitude: -81.987698
-  radius: 200
-  icon: mdi:hospital-building
+zone: !include zones.yaml
 
 media_player:
   - platform: roku
@@ -101,3 +90,22 @@ notify:
 script: !include scripts.yaml
 
 automation: !include automation.yaml
+
+namecheapdns:
+    host: hass
+    domain: kail.io
+    password: !secret namecheap_access_token
+
+input_select:
+    house_mode:
+        name: House Mode
+        options:
+            - Morning
+            - Day
+            - Evening
+            - Night
+    presense:
+        name: Presence
+        options:
+            - Home
+            - Away
