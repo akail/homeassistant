@@ -1,0 +1,29 @@
+#- alias: 'Rule 2 Upstairs Cooling Nighttime'
+#  trigger:
+#    - platform: time
+#      at: '23:00:00'
+#  action:
+#    - service: climate.set_temperature
+#      entity_id: climate.linear_tbz48_thermostat_cooling_1_3_2
+#      data:
+#        temperature: 78
+#
+#    - service: climate.set_temperature
+#      entity_id: climate.linear_tbz48_thermostat_heating_1_3_1
+#      data:
+#        temperature: 68
+#
+#- alias: 'Rule 2 Upstairs Cooling Morning'
+#  trigger:
+#    - platform: time
+#      at: '05:00:00'
+#  action:
+#    - service: climate.set_temperature
+#      entity_id: climate.linear_tbz48_thermostat_cooling_1_3_2
+#      data:
+#        temperature: 76
+#
+#    - service: climate.set_temperature
+#      entity_id: climate.linear_tbz48_thermostat_heating_1_3_1
+#      data:
+#        temperature: 70

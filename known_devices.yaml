@@ -247,8 +247,6 @@ andrew_honor8:
   track: true
   vendor: HUAWEI TECHNOLOGIES CO.,LTD
 
-
-
 b827eb0bdc16:
   hide_if_away: false
   icon:
@@ -329,3 +327,21 @@ maggie_iphone:
   picture:
   track: false
   vendor: unknown
+
+3423874ec2d6:
+  hide_if_away: false
+  icon:
+  mac: 34:23:87:4E:C2:D6
+  name: 3423874ec2d6
+  picture:
+  track: false
+  vendor: Hon Hai Precision Ind. Co.,Ltd.
+
+b49cdf29ac75:
+  hide_if_away: false
+  icon:
+  mac: B4:9C:DF:29:AC:75
+  name: b49cdf29ac75
+  picture:
+  track: false
+  vendor: Apple, Inc.

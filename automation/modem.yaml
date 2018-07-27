@@ -1,0 +1,10 @@
+- alias: 'Restart Modem'
+  trigger:
+    - platform: time
+      at: '03:30:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.ge_unknown_type5052_id3038_switch
+    - delay: '00:00:30'
+    - service: switch.turn_on
+      entity_id: switch.ge_unknown_type5052_id3038_switch

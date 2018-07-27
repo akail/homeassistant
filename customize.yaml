@@ -12,3 +12,19 @@
       friendly_name: Downstairs Temp
     light.linear_lb60z1_dimmable_led_light_bulb_level:
       friendly_name: Atrium Lamp Light
+    light.linear_lb60z1_dimmable_led_light_bulb_level_2:
+      friendly_name: Hutch Light
+    switch.ge_unknown_type5052_id3038_switch:
+      friendly_name: Modem Switch
+    zwave.aeotec_zw090_zstick_gen5_us:
+      friendly_name: Aeotec Zstick
+    zwave.ge_unknown_type5052_id3038:
+      friendly_name: GE Modem Switch
+    zwave.linear_gctbz48_battery_powered_zwave_thermostat:
+      friendly_name: Thermostat 1
+    zwave.linear_gctbz48_battery_powered_zwave_thermostat_2:
+      friendly_name: Thermostat 2
+    zwave.linear_lb60z1_dimmable_led_light_bulb:
+      friendly_name: Atrium Lamp Light
+    zwave.linear_lb60z1_dimmable_led_light_bulb_2:
+      friendly_name: Hutch Light

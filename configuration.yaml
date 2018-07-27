@@ -31,7 +31,7 @@ http:
   # Uncomment this to add a password (recommended!)
     api_password: !secret http_password
   # Uncomment this if you are using SSL or running in Docker etc
-    base_url: example.duckdns.org
+    base_url: home.kail.io
     ssl_certificate: /etc/letsencrypt/live/hass.kail.io/fullchain.pem
     ssl_key: /etc/letsencrypt/live/hass.kail.io/privkey.pem
 
@@ -63,11 +63,12 @@ tts:
 sensor: !include sensor.yaml
 
 device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.0.0/22
-    home_interval: 60
-    track_new_devices: no
   - platform: owntracks_http
+
+#  - platform: nmap_tracker
+#    hosts: 192.168.0.0/22
+#    home_interval: 60
+#    track_new_devices: no
 
 zone: !include zones.yaml
 
@@ -87,9 +88,9 @@ notify:
     platform: pushbullet
     api_key: !secret pushbullet_api_key
 
-script: !include scripts.yaml
+script: !include_dir_merge_named scripts/
 
-automation: !include automation.yaml
+automation: !include_dir_merge_list automation/
 
 namecheapdns:
     host: hass
@@ -109,3 +110,8 @@ input_select:
         options:
             - Home
             - Away
+
+alarm_control_panel:
+    platform: simplisafe
+    username: thekails15@gmail.com
+    password: !secret simplisafe_password
