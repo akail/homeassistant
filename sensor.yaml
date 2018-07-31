@@ -1,6 +1,17 @@
 - platform: yr
+
 - platform: darksky
   api_key: !secret darksky_api_key
   monitored_conditions:
     - temperature
+    - precip_accumulation
+    - precip_probability
+    - precip_intensity
 
+- platform: haveibeenpwned
+  email:
+    - andrew.a.kail@gmail.com
+    - aakail11@gmail.com
+    - winthrose@gmail.com
+    - thekails15@gmail.com
+    - akail@ualr.com
