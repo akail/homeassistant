@@ -1,0 +1,5 @@
+---
+switch.ge_unknown_type5052_id3038_switch:
+  friendly_name: Modem Switch
+switch.hank_hkzwso01_smart_plug_switch:
+  friendly_name: Zwave Power Switch

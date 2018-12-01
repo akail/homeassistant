@@ -1,0 +1,21 @@
+---
+zwave.aeotec_zw090_zstick_gen5_us:
+  friendly_name: Aeotec Zstick
+zwave.ge_unknown_type5052_id3038:
+  friendly_name: GE Modem Switch
+zwave.linear_gctbz48_battery_powered_zwave_thermostat:
+  friendly_name: Thermostat 1
+zwave.linear_gctbz48_battery_powered_zwave_thermostat_2:
+  friendly_name: Thermostat 2
+zwave.linear_lb60z1_dimmable_led_light_bulb:
+  friendly_name: Atrium Lamp Light
+zwave.linear_lb60z1_dimmable_led_light_bulb_2:
+  friendly_name: TV Room Light
+zwave.hank_hkzwrgb01_rgb_bulb:
+  friendly_name: Hutch Light
+zwave.hank_hkzwso01_smart_plug:
+  friendly_name: Power Switch
+zwave.vision_zg8101_garage_door_detector:
+  friendly_name: Garage Door Detector
+zwave.vision_zp3102_pir_motion_sensor:
+  friendly_name: TV Room Motion Sensor

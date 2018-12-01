@@ -8,10 +8,18 @@
     - precip_probability
     - precip_intensity
 
-- platform: haveibeenpwned
-  email:
-    - andrew.a.kail@gmail.com
-    - aakail11@gmail.com
-    - winthrose@gmail.com
-    - thekails15@gmail.com
-    - akail@ualr.com
+- platform: statistics
+  entity_id: sensor.dark_sky_precip_intensity
+  max_age:
+    days: 7
+
+- platform: template
+  sensors:
+    tvroom_motion:
+      friendly_name: 'Motion Detected TV Room'
+      value_template: >-
+        {%- if is_state("sensor.vision_zp3102_pir_motion_sensor_burglar", "0") -%}
+        No
+        {%- else -%}
+        Yes
+        {%- endif -%}

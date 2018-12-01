@@ -1,0 +1,71 @@
+downstairs_climate:
+  name: Downstairs AC
+  view: no
+  entities:
+    - climate.linear_gctbz48_battery_powered_zwave_thermostat_cooling_1_2
+    - climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1_2
+
+upstairs_climate:
+  name: Upstairs AC
+  view: no
+  entities:
+    - climate.linear_gctbz48_battery_powered_zwave_thermostat_cooling_1
+    - climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
+
+upstairs_lights:
+  name: Upstairs Lights
+  entities:
+    - light.linear_lb60z1_dimmable_led_light_bulb_level_2
+
+downstairs_lights:
+  name: Downstairs Lights
+  entities:
+    - light.linear_lb60z1_dimmable_led_light_bulb_level
+    - light.hank_hkzwrgb01_rgb_bulb_level
+
+upstairs_view:
+  name: Upstairs
+  view: yes
+  entities:
+    - group.upstairs_climate
+    - group.upstairs_lights
+    - media_player.tvroom
+    - switch.ge_unknown_type5052_id3038_switch
+    - binary_sensor.tvroom_motion
+    - sensor.linear_gctbz48_battery_powered_zwave_thermostat_temperature
+    - automation.upstairs_cooling_morning
+    - automation.upstairs_cooling_nighttime
+    - automation.tv_room_motion_light
+    - automation.tv_room_night_light
+    - automation.restart_modem
+
+downstairs_view:
+  name: Downstairs
+  view: yes
+  entities:
+    - group.downstairs_climate
+    - group.downstairs_lights
+    - remote.apple_tv
+    - vacuum.none
+    - media_player.apple_tv
+    - media_player.bedroom
+    - media_player.kitchen
+    - media_player.living_room
+    - binary_sensor.bedroom_door_status
+    - sensor.linear_gctbz48_battery_powered_zwave_thermostat_temperature_2
+    - automation.atrium_light_off_after_sunrise
+    - automation.atrium_light_off_before_bed
+    - automation.atrium_light_on_in_evening
+    - automation.atrium_light_on_in_morning
+    - automation.atrium_night_light
+    - automation.hutch_light_off_before_bed
+    - automation.hutch_light_on_at_sunset
+    - automation.hutch_light_on_before_sunset
+    - automation.run_vacuum
+
+family_view:
+  name: Family
+  view: yes
+  entities:
+    - device_tracker.andrew_nmap
+    - device_tracker.maggie_iphone

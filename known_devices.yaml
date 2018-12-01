@@ -1,4 +1,3 @@
-
 kitchen:
   hide_if_away: false
   mac: B8:A1:75:4B:0A:61
@@ -86,7 +85,6 @@ d4f46f402028:
   picture:
   track: false
   vendor: Apple, Inc.
-
 
 f4f951c42758:
   hide_if_away: false
@@ -238,15 +236,6 @@ f09fc211d709:
   track: false
   vendor: Apple, Inc.
 
-andrew_honor8:
-  hide_if_away: false
-  icon:
-  mac: 8C:EB:C6:AF:4A:52
-  name: Andrew
-  picture: /local/andrewface.jpg
-  track: true
-  vendor: HUAWEI TECHNOLOGIES CO.,LTD
-
 b827eb0bdc16:
   hide_if_away: false
   icon:
@@ -314,9 +303,9 @@ maggie_iphone:
   hide_if_away: false
   icon:
   mac: 48:4B:AA:BD:5D:81
-  name: Maggie
+  name: Maggie_old
   picture: /local/maggie.jpg
-  track: true
+  track: false
   vendor:
 
 787b8a8935bb:
@@ -345,3 +334,148 @@ b49cdf29ac75:
   picture:
   track: false
   vendor: Apple, Inc.
+
+andrew_owntracks:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Andrew Owntracks
+  picture: /local/andrewface.jpg
+  track: false
+
+andrew_nmap:
+  hide_if_away: false
+  icon:
+  name: Andrew Nmap
+  picture: /local/andrewface.jpg
+  track: true
+  vendor: HUAWEI TECHNOLOGIES CO.,LTD
+  mac: 8C:EB:C6:AF:4A:52
+
+piblue01:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:E2:C2:CA
+  name: pi-blue-01
+  picture:
+  track: false
+
+living_room:
+  hide_if_away: false
+  icon:
+  mac: C8:3A:6B:9E:3C:7E
+  name: Living room
+  picture:
+  track: false
+
+andrewkvsiphone:
+  hide_if_away: false
+  icon:
+  mac: 24:F0:94:00:BE:9A
+  name: AndrewKvsiPhone
+  picture:
+  track: false
+
+amazon62d579f38:
+  hide_if_away: false
+  icon:
+  mac: 78:E1:03:F3:16:50
+  name: amazon-62d579f38
+  picture:
+  track: false
+
+maggie_paperwhite:
+  hide_if_away: false
+  icon:
+  mac: 84:D6:D0:83:BF:21
+  name: Maggie PaperWhite
+  picture:
+  track: false
+
+b827ebd7fa27:
+  hide_if_away: false
+  icon:
+  mac: B8:27:EB:D7:FA:27
+  name: b827ebd7fa27
+  picture:
+  track: false
+
+esp_2ea009:
+  hide_if_away: false
+  icon:
+  mac: B4:E6:2D:2E:A0:09
+  name: ESP 2EA009
+  picture:
+  track: false
+
+pootie:
+  hide_if_away: false
+  icon:
+  mac: 88:66:A5:3D:63:78
+  name: Pootie
+  picture:
+  track: false
+
+wemo:
+  hide_if_away: false
+  icon:
+  mac: 24:F5:A2:53:8C:63
+  name: wemo
+  picture:
+  track: false
+
+maggiesiphone:
+  hide_if_away: false
+  icon:
+  mac: F8:38:80:B4:83:62
+  name: Maggie
+  picture: /local/maggie.jpg
+  track: true
+
+tcl_roku_tv__068:
+  hide_if_away: false
+  icon:
+  mac: C0:D2:F3:F1:5B:8A
+  name: TCL Roku TV - 068
+  picture:
+  track: false
+
+00037f9183f1:
+  hide_if_away: false
+  icon:
+  mac: 00:03:7F:91:83:F1
+  name: 00037f9183f1
+  picture:
+  track: false
+
+f4b85ed1259cmysimplelink:
+  hide_if_away: false
+  icon:
+  mac: F4:B8:5E:D1:25:9C
+  name: F4B85ED1259C-mysimplelink
+  picture:
+  track: false
+
+f4b85ed12fc5mysimplelink:
+  hide_if_away: false
+  icon:
+  mac: F4:B8:5E:D1:2F:C5
+  name: F4B85ED12FC5-mysimplelink
+  picture:
+  track: false
+
+f4b85e076db0:
+  hide_if_away: false
+  icon:
+  mac: F4:B8:5E:07:6D:B0
+  name: f4b85e076db0
+  picture:
+  track: false
+
+hs105:
+  hide_if_away: false
+  icon:
+  mac: 0C:80:63:65:88:97
+  name: HS105
+  picture:
+  track: true

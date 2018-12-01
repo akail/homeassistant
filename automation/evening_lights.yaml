@@ -1,4 +1,5 @@
-- alias: 'Light on in evening'
+---
+- alias: 'Atrium light on in evening'
   trigger:
     - platform: sun
       event: sunset
@@ -11,27 +12,10 @@
     - service: light.turn_on
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
 
-- alias: 'Light off before bed'
+- alias: 'Atrium light off before bed'
   trigger:
     - platform: time
       at: '22:00:00'
-  action:
-    - service: light.turn_off
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
-
-- alias: 'Light on in morning'
-  trigger:
-    - platform: time
-      at: '05:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
-
-- alias: 'Light off after sunrise'
-  trigger:
-    - platform: sun
-      event: sunrise
-      offset: '01:00:00'
   action:
     - service: light.turn_off
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
@@ -48,7 +32,7 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
+        entity_id: light.hank_hkzwrgb01_rgb_bulb_level
         brightness_pct: 35
 
 - alias: 'Hutch light on at sunset'
@@ -63,14 +47,29 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
+        entity_id: light.hank_hkzwrgb01_rgb_bulb_level
         brightness_pct: 65
-
 
 - alias: 'Hutch light off before bed'
   trigger:
     - platform: time
-      at: '22:30:00'
+      at: '22:00:00'
   action:
     - service: light.turn_off
+      entity_id: light.hank_hkzwrgb01_rgb_bulb_level
+
+- alias: 'TV Room Motion Light'
+  trigger:
+    platform: state
+    entity_id: sensor.tvroom_motion
+    from: 'No'
+    to: 'Yes'
+  condition:
+    - condition: sun
+      after: sunset
+      after_offset: '-01:00:00'
+    - condition: time
+      before: '23:00:00'
+  action:
+    - service: light.turn_on
       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2

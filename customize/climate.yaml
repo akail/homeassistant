@@ -1,0 +1,9 @@
+---
+climate.linear_gctbz48_battery_powered_zwave_thermostat_cooling_1:
+  friendly_name: Upstairs Cooling
+climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1:
+  friendly_name: Upstairs Heating
+climate.linear_gctbz48_battery_powered_zwave_thermostat_cooling_1_2:
+  friendly_name: Downstairs Cooling
+climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1_2:
+  friendly_name: Downstairs Heating

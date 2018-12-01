@@ -1,0 +1,19 @@
+#- alias: Andrew is away
+#  trigger:
+#    platform: state
+#    entity_id: group.andrew
+#    to: 'not_home'
+#  action:
+#    service: notify.andrews_phone
+#    data:
+#      message: "Andrew is away"
+#
+#- alias: Andrew is home
+#  trigger:
+#    platform: state
+#    entity_id: group.andrew
+#    to: 'home'
+#  action:
+#    service: notify.andrews_phone
+#    data:
+#      message: "Andrew is home"

@@ -1,17 +1,18 @@
+---
 homeassistant:
   # Name of the location where Home Assistant is running
   name: Home
   # Location required to calculate the time the sun rises and sets
-  latitude: 33.4483
-  longitude: -81.6921
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
   # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 137
+  elevation: !secret home_elevation
   # metric for Metric, imperial for Imperial
   unit_system: imperial
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
 
-  customize: !include customize.yaml
+  customize: !include_dir_merge_named customize
 
 # Show links to resources in log and frontend
 #introduction:
@@ -29,11 +30,11 @@ config:
 
 http:
   # Uncomment this to add a password (recommended!)
-    api_password: !secret http_password
+  api_password: !secret http_password
   # Uncomment this if you are using SSL or running in Docker etc
-    base_url: home.kail.io
-    ssl_certificate: /etc/letsencrypt/live/hass.kail.io/fullchain.pem
-    ssl_key: /etc/letsencrypt/live/hass.kail.io/privkey.pem
+  base_url: !secret hass_url
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
 
 # enable map
 map:
@@ -63,22 +64,28 @@ tts:
 sensor: !include sensor.yaml
 
 device_tracker:
-  - platform: owntracks_http
+#  - platform: owntracks_http
+#    track_new_devices: yes
 
-#  - platform: nmap_tracker
-#    hosts: 192.168.0.0/22
-#    home_interval: 60
-#    track_new_devices: no
+  - platform: unifi
+    host: 192.168.1.99
+    username: !secret unifi_controller_username
+    password: !secret unifi_controller_password
+    verify_ssl: false
 
 zone: !include zones.yaml
 
 media_player:
   - platform: roku
+    host: 192.168.2.59
+  - platform: roku
+    host: 192.168.2.26
+  - platform: roku
     host: 192.168.2.29
   - platform: roku
-    host: 192.168.2.30
+    host: 192.168.2.31
   - platform: roku
-    host: 192.168.2.38
+    host: 192.168.2.82
 
 zwave:
   usb_path: /dev/ttyACM0
@@ -92,12 +99,12 @@ notify:
     server: smtp.gmail.com
     port: 587
     timeout: 15
-    sender: aakail11@gmail.com
+    sender: !secret smtp_email
     encryption: starttls
-    username: aakail11@gmail.com
+    username: !secret smtp_email
     password: !secret aakail11_gmail_key
     recipient:
-        - !secret andrew_phone_email
+      - !secret andrew_phone_email
     sender_name: HASS
 
 script: !include_dir_merge_named scripts/
@@ -105,25 +112,61 @@ script: !include_dir_merge_named scripts/
 automation: !include_dir_merge_list automation/
 
 namecheapdns:
-    host: hass
-    domain: kail.io
-    password: !secret namecheap_access_token
+  host: hass
+  domain: kail.io
+  password: !secret namecheap_access_token
 
 input_select:
-    house_mode:
-        name: House Mode
-        options:
-            - Morning
-            - Day
-            - Evening
-            - Night
-    presence:
-        name: Presence
-        options:
-            - Home
-            - Away
+  house_mode:
+    name: House Mode
+    options:
+      - Morning
+      - Day
+      - Evening
+      - Night
+  presence:
+    name: Presence
+    options:
+      - Home
+      - Away
+  guest_mode:
+    name: Guests
+    options:
+      - Yes
+      - No
 
-alarm_control_panel:
-    platform: simplisafe
-    username: thekails15@gmail.com
-    password: !secret simplisafe_password
+simplisafe:
+  accounts:
+    - username: !secret simplisafe_username
+      password: !secret simplisafe_password
+
+group: !include groups.yaml
+
+wemo:
+
+ecovacs:
+  username: !secret ecovacs_username
+  password: !secret ecovacs_password
+  country: !secret ecovacs_country
+  continent: !secret ecovacs_continent
+
+
+binary_sensor: !include binary_sensor.yaml
+
+blink:
+  username: !secret blink_username
+  password: !secret blink_password
+  scan_interval: 3600
+  binary_sensors:
+    monitored_conditions:
+      - motion_enabled
+      - motion_detected
+  sensors:
+    monitored_conditions:
+      - battery
+      - temperature
+
+switch:
+  - platform: tplink
+    host: 192.168.2.87
+

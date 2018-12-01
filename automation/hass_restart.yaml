@@ -1,0 +1,10 @@
+#- alias: 'Restart Homeassistant'
+#  trigger:
+#    - platform: time
+#      at: '01:30:00'
+#  condition:
+#    - condition: time
+#      weekday:
+#        - sat
+#  action:
+#    - service: homeassistant.restart

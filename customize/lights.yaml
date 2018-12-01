@@ -1,0 +1,7 @@
+---
+light.linear_lb60z1_dimmable_led_light_bulb_level:
+  friendly_name: Atrium Lamp Light
+light.hank_hkzwrgb01_rgb_bulb_level:
+  friendly_name: Hutch Light
+light.linear_lb60z1_dimmable_led_light_bulb_level_2:
+  friendly_name: TV Room Light

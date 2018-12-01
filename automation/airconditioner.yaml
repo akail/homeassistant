@@ -1,3 +1,4 @@
+---
 - alias: 'Upstairs Cooling Nighttime'
   trigger:
     - platform: time
