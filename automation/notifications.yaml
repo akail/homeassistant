@@ -1,19 +1,40 @@
-#- alias: Andrew is away
-#  trigger:
-#    platform: state
-#    entity_id: group.andrew
-#    to: 'not_home'
-#  action:
-#    service: notify.andrews_phone
-#    data:
-#      message: "Andrew is away"
-#
-#- alias: Andrew is home
-#  trigger:
-#    platform: state
-#    entity_id: group.andrew
-#    to: 'home'
-#  action:
-#    service: notify.andrews_phone
-#    data:
-#      message: "Andrew is home"
+---
+- alias: Notify of presence change
+  trigger:
+    - platform: state
+      entity_id: input_select.presence
+  action:
+    - service: notify.hass
+      data_template:
+        title: Home Assistant
+        message: >
+            Home presence is {{states('input_select.presence') }}
+
+- alias: Notify of guest mode still on
+  trigger:
+    - platform: time
+      at: '09:00:00'
+  condition:
+    condition: state
+    entity_id: input_select.guest_mode
+    state: 'True'
+    for:
+      hours: 24
+  action:
+    - service: notify.hass
+      data_template:
+        title: Home Assistant
+        message: Guest mode still activated
+
+
+# - alias: motion detected in office
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.office_motion
+#       from: "off"
+#       to: "on"
+#   action:
+#     - service: notify.hass
+#       data:
+#         title: home assistant
+#         message: Motion detected in office

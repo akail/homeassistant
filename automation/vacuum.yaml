@@ -1,22 +1,28 @@
+---
 - alias: 'Run Vacuum'
   trigger:
     - platform: time
-      at: '15:15:00'
+      at: '14:30:00'
   condition:
     - condition: time
       weekday:
         - mon
         - wed
         - fri
-#    - condition: state
-#      entity_id: binary_sensor.bedroom_door_status
-#      state: 'off'
+# - condition: state
+#   entity_id: binary_sensor.bedroom_door_status
+#   state: 'off'
   action:
-    - service: notify.andrews_phone
+    - service: notify.hass
       data:
+        title: Home Assistant
         message: "Running vacuum"
     - service: vacuum.turn_on
-      entity_id: vacuum.none
-    - delay: '01:15:00'
+      entity_id: vacuum.bumper
+    - delay: '02:00:00'
     - service: vacuum.return_to_base
-      entity_id: vacuum.none
+      entity_id: vacuum.bumper
+    - service: calendar.todoist_new_task
+      data:
+        content: Clean Bumper
+        due_date_string: today

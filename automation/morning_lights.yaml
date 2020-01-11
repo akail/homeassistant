@@ -7,7 +7,7 @@
       at: '05:15:00'
   action:
     - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+      entity_id: light.atrium
 
 - alias: 'Atrium light off after sunrise'
   trigger:
@@ -16,7 +16,7 @@
       offset: '01:00:00'
   action:
     - service: light.turn_off
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+      entity_id: light.atrium
 
 #  trigger:
 #    platform: state

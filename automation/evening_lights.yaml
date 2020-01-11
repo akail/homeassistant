@@ -10,66 +10,40 @@
       before: '23:00:00'
   action:
     - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+      data:
+        entity_id: light.atrium
+    - service: light.turn_on
+      data:
+        entity_id: light.dining_room_hutch
+        brightness_pct: 100
+    - service: switch.turn_on
+      data:
+        entity_id: switch.front_porch
 
-- alias: 'Atrium light off before bed'
+- alias: 'Lights off before bed'
   trigger:
     - platform: time
       at: '22:00:00'
   action:
     - service: light.turn_off
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
-
-- alias: 'Hutch light on before sunset'
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:00:00'
-  condition:
-    - condition: time
-      after: '16:00:00'
-      before: '23:00:00'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.hank_hkzwrgb01_rgb_bulb_level
-        brightness_pct: 35
-
-- alias: 'Hutch light on at sunset'
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: '-01:00:00'
-  condition:
-    - condition: time
-      after: '16:00:00'
-      before: '23:00:00'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.hank_hkzwrgb01_rgb_bulb_level
-        brightness_pct: 65
-
-- alias: 'Hutch light off before bed'
-  trigger:
-    - platform: time
-      at: '22:00:00'
-  action:
+      entity_id: light.atrium
     - service: light.turn_off
-      entity_id: light.hank_hkzwrgb01_rgb_bulb_level
+      entity_id: light.dining_room_hutch
+    - service: switch.turn_off
+      entity_id: switch.front_porch
 
-- alias: 'TV Room Motion Light'
-  trigger:
-    platform: state
-    entity_id: sensor.tvroom_motion
-    from: 'No'
-    to: 'Yes'
-  condition:
-    - condition: sun
-      after: sunset
-      after_offset: '-01:00:00'
-    - condition: time
-      before: '23:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
+# - alias: 'TV Room Motion Light'
+#   trigger:
+#     platform: state
+#     entity_id: sensor.tvroom_motion
+#     from: 'No'
+#     to: 'Yes'
+#   condition:
+#     - condition: sun
+#       after: sunset
+#       after_offset: '-01:00:00'
+#     - condition: time
+#       before: '23:00:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2

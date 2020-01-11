@@ -1,4 +1,6 @@
+---
 - platform: yr
+- platform: version
 
 - platform: darksky
   api_key: !secret darksky_api_key
@@ -10,16 +12,18 @@
 
 - platform: statistics
   entity_id: sensor.dark_sky_precip_intensity
+  precision: 3
   max_age:
     days: 7
 
 - platform: template
   sensors:
-    tvroom_motion:
-      friendly_name: 'Motion Detected TV Room'
-      value_template: >-
-        {%- if is_state("sensor.vision_zp3102_pir_motion_sensor_burglar", "0") -%}
-        No
-        {%- else -%}
-        Yes
-        {%- endif -%}
+    andrew_status:
+      value_template: '{{ states.input_select.andrew_status_dropdown.state }}'
+      friendly_name: 'Andrew'
+    maggie_status:
+      value_template: '{{ states.input_select.maggie_status_dropdown.state }}'
+      friendly_name: 'Maggie'
+    alarm_mode:
+      value_template: '{{ states.input_select.alarm_mode.state }}'
+      friendly_name: 'Alarm Mode'

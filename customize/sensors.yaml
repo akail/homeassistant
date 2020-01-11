@@ -1,5 +1,0 @@
----
-sensor.linear_gctbz48_battery_powered_zwave_thermostat_temperature:
-  friendly_name: Upstairs Temp
-sensor.linear_gctbz48_battery_powered_zwave_thermostat_temperature_2:
-  friendly_name: Downstairs Temp

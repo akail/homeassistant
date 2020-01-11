@@ -1,0 +1,47 @@
+---
+arm_away:
+  alias: Away Mode
+  sequence:
+    - alias: Turn on simplisafe away
+      service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.2_gippy_ct
+    - delay:
+        minutes: 1
+    - alias: Turn on blink away
+      service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.blink_home
+
+arm_home:
+  alias: Night Mode
+  sequence:
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        entity_id: alarm_control_panel.2_gippy_ct
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.blink_home
+    - service: light.turn_off
+      data:
+        entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level
+    - service: light.turn_off
+      data:
+        entity_id: light.hank_hkzwrgb01_rgb_bulb_level
+    - service: light.turn_off
+      data:
+        entity_id: light.linear_lb60z1_dimmable_led_light_bulb_level_2
+    - service: switch.turn_off
+      data:
+        entity_id: switch.front_porch
+
+
+arm_off:
+  alias: Alarm Off
+  sequence:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.2_gippy_ct
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.blink_home

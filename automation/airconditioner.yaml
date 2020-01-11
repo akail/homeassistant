@@ -1,30 +1,101 @@
 ---
-- alias: 'Upstairs Cooling Nighttime'
+- alias: "AC Stuff"
   trigger:
     - platform: time
-      at: '23:00:00'
-  action:
-    - service: climate.set_temperature
-      entity_id: climate.linear_gctbz48_battery_powered_zwave_thermostat_cooling_1
-      data:
-        temperature: 78
-
-    - service: climate.set_temperature
-      entity_id: climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
-      data:
-        temperature: 66
-
-- alias: 'Upstairs Cooling Morning'
-  trigger:
+      at: '20:00:00'
     - platform: time
-      at: '06:00:00'
+      at: '22:00:00'
+    - platform: time
+      at: '07:00:00'
+    - platform: state
+      entity_id: input_select.presence
+    - platform: state
+      entity_id: input_select.guest_mode
   action:
     - service: climate.set_temperature
-      entity_id: climate.linear_gctbz48_battery_powered_zwave_thermostat_cooling_1
-      data:
-        temperature: 76
+      data_template:
+        entity_id: climate.downstairs_ac
+        target_temp_high: >
+          {%- if now().hour >= 7 and now().hour < 22 %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+            74
+            {%- else %}
+              {%- if is_state('input_select.presence', 'Home') %}
+              74
+              {%- elif is_state('input_select.presence', 'Away') %}
+              76
+              {%- else %}
+              78
+              {%- endif %}
+            {%- endif %}
+
+          {%- else %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+            72
+            {%- else %}
+            78
+            {%- endif %}
+          {%- endif %}
+
+        target_temp_low: >
+          {%- if now().hour >= 7 and now().hour < 22 %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+            67
+            {%- else %}
+              {%- if is_state('input_select.presence', 'Home') %}
+                68
+              {%- elif is_state('input_select.presence', 'Away') %}
+                66
+              {%- else %}
+                64
+              {%- endif %}
+            {%- endif %}
+
+          {%- else %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+              69
+            {%- else %}
+              64
+            {%- endif %}
+          {%- endif %}
 
     - service: climate.set_temperature
-      entity_id: climate.linear_gctbz48_battery_powered_zwave_thermostat_heating_1
-      data:
-        temperature: 68
+      data_template:
+        entity_id: climate.downstairs_ac
+        target_temp_high: >
+          {%- if now().hour >= 7 and now().hour < 20 %}
+            {%- if is_state('input_select.presence', 'Home') %}
+              74
+            {%- elif is_state('input_select.presence', 'Away') %}
+              76
+            {%- else %}
+              78
+            {%- endif %}
+          {%- else %}
+            {%- if is_state('input_select.presence', 'Home') %}
+              72
+            {%- elif is_state('input_select.presence', 'Away') %}
+              75
+            {%- else %}
+              78
+            {%- endif %}
+          {%- endif %}
+
+        target_temp_low: >
+          {%- if is_state('input_select.presence', 'Home') %}
+            68
+          {%- elif is_state('input_select.presence', 'Away') %}
+            66
+          {%- else %}
+            64
+          {%- endif %}
+
+    - delay: '00:01:00'
+    - service: notify.hass
+      data_template:
+        title: Home Assistant
+        message: |
+            Dowstairs Heating set to {{state_attr('climate.downstairs_ac', 'target_temp_low')}}
+            Dowstairs Cooling set to {{state_attr('climate.downstairs_ac', 'target_temp_high')}}
+            Upstairs Heating set to {{state_attr('climate.upstairs_ac', 'target_temp_low')}}
+            Upstairs Cooling set to {{state_attr('climate.upstairs_ac', 'target_temp_high')}}

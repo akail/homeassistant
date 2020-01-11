@@ -1,0 +1,38 @@
+---
+- alias: 'TV LED Color'
+  trigger:
+    - platform: state
+      entity_id: media_player.tcl_tv
+  condition:
+    - condition: template
+      value_template: "{{ states('media_player.tcl_tv') != 'standby'}}"
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: light.tv_led_strip
+        color_name: >
+          {%- if is_state_attr('media_player.tcl_tv', 'source', 'Home') %}
+          orange
+          {%- elif is_state_attr('media_player.tcl_tv', 'source', 'Hulu') %}
+          green
+          {%- elif is_state_attr('media_player.tcl_tv', 'source', 'Netflix') %}
+          red
+          {%- elif is_state_attr('media_player.tcl_tv', 'source', 'Disney Plus') %}
+          blue
+          {%- elif is_state_attr('media_player.tcl_tv', 'source', 'YouTube') %}
+          red
+          {%- else %}
+          gray
+          {%- endif %}
+
+- alias: "TV LED Off"
+  trigger:
+    - platform: state
+      entity_id: media_player.tcl_tv
+  condition:
+    - condition: template
+      value_template: "{{ states('media_player.tcl_tv') == 'standby'}}"
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.tv_led_strip

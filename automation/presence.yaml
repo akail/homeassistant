@@ -1,0 +1,281 @@
+---
+- alias: Mark person as just arrived
+  trigger:
+    - platform: state
+      entity_id: device_tracker.andrew_phone
+      from: 'not_home'
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.maggies_iphone
+      from: 'not_home'
+      to: 'home'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.andrew_phone' %}
+            input_select.andrew_status_dropdown
+          {% else %}
+            input_select.maggie_status_dropdown
+          {% endif %}
+        option: >
+          {% if trigger.entity_id == 'device_tracker.andrew_phone' %}
+            {% if states.input_select.andrew_status_dropdown.state == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% else %}
+            {% if states.input_select.maggie_status_dropdown.state == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% endif %}
+
+- alias: Mark person as home
+  trigger:
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+      from: 'Just Left'
+      to: 'Just Arrived'
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+      from: 'Just Left'
+      to: 'Just Arrived'
+  condition:
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.andrew_status_dropdown' %}
+            input_select.andrew_status_dropdown
+          {% else %}
+            input_select.maggie_status_dropdown
+          {% endif %}
+        option: Home
+
+- alias: Mark person as just left
+  trigger:
+    - platform: state
+      entity_id: device_tracker.andrew_phone
+      from: 'home'
+      to: 'not_home'
+    - platform: state
+      entity_id: device_tracker.maggies_iphone
+      from: 'home'
+      to: 'not_home'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.andrew_phone' %}
+            input_select.andrew_status_dropdown
+          {% else %}
+            input_select.maggie_status_dropdown
+          {% endif %}
+        option: Just Left
+
+- alias: Mark person as away
+  trigger:
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+      to: 'Just Left'
+      for:
+        minutes: 5
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+      to: 'Just Left'
+      for:
+        minutes: 5
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.andrew_status_dropdown' %}
+            input_select.andrew_status_dropdown
+          {% else %}
+            input_select.maggie_status_dropdown
+          {% endif %}
+        option: Away
+
+- alias: Mark person as extended away
+  trigger:
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+      to: 'Away'
+      for:
+        hours: 24
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+      to: 'Away'
+      for:
+        hours: 24
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.andrew_status_dropdown' %}
+            input_select.andrew_status_dropdown
+          {% else %}
+            input_select.maggie_status_dropdown
+          {% endif %}
+        option: Extended Away
+# From https://philhawthorne.com/making-home-assistants-presence-detection-not-so-binary/
+
+- alias: Mark Maggie as away when home assistant starts
+  initial_state: 'on'
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.maggies_iphone
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.maggie_status_dropdown
+        option: Away
+
+- alias: Mark Andrew as away when home assistant starts
+  initial_state: 'on'
+  trigger:
+    - platform: homeassistant
+      event: start
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.andrew_phone
+        state: 'not_home'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.andrew_status_dropdown
+        option: Away
+
+# This uses the previous automations to set the homes actual home presence
+# Options are Home, Away, and Extended away
+- alias: Set Home presence away
+  trigger:
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+  condition:
+    condition: or
+    conditions:
+
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.andrew_status_dropdown
+            state: 'Away'
+          - condition: state
+            entity_id: input_select.maggie_status_dropdown
+            state: 'Away'
+
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.andrew_status_dropdown
+            state: 'Extended Away'
+          - condition: state
+            entity_id: input_select.maggie_status_dropdown
+            state: 'Away'
+
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: input_select.andrew_status_dropdown
+            state: 'Away'
+          - condition: state
+            entity_id: input_select.maggie_status_dropdown
+            state: 'Extended Away'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.presence
+        option: Away
+
+- alias: Set Home presence home
+  trigger:
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_select.andrew_status_dropdown
+          state: 'Just Arrived'
+        - condition: state
+          entity_id: input_select.andrew_status_dropdown
+          state: 'Home'
+        - condition: state
+          entity_id: input_select.andrew_status_dropdown
+          state: 'Just Left'
+
+        - condition: state
+          entity_id: input_select.maggie_status_dropdown
+          state: 'Just Arrived'
+        - condition: state
+          entity_id: input_select.maggie_status_dropdown
+          state: 'Home'
+        - condition: state
+          entity_id: input_select.maggie_status_dropdown
+          state: 'Just Left'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.presence
+        option: Home
+
+- alias: Set Home presence extended away
+  trigger:
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+  condition:
+    - condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.andrew_status_dropdown
+          state: 'Extended Away'
+        - condition: state
+          entity_id: input_select.maggie_status_dropdown
+          state: 'Extended Away'
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.presence
+        option: Extended Away
+
+
+# - alias: Disable garage camera
+#   trigger:
+#     - platform: state
+#       entity_id: input_select.andrew_status_dropdown
+#       from: Away
+#       to: Just Arrived
+#   action:
+#     - service: camera.disable_motion_detection
+#       entity_id: camera.blink_garage
+#     - delay: '00:10:00'
+#     - service: camera.disable_motion_detection
+#       entity_id: camera.blink_garage

@@ -1,115 +1,48 @@
 ---
-homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: !secret home_elevation
-  # metric for Metric, imperial for Imperial
-  unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time_zone: America/New_York
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
 
-  customize: !include_dir_merge_named customize
-
-# Show links to resources in log and frontend
-#introduction:
-
-# Enables the frontend
-frontend:
-
-# recorder settings
-recorder:
-  purge_interval: 7
-  purge_keep_days: 7
-  db_url: sqlite:///data/haconfig/home_assistant.db
-
-config:
-
-http:
-  # Uncomment this to add a password (recommended!)
-  api_password: !secret http_password
-  # Uncomment this if you are using SSL or running in Docker etc
-  base_url: !secret hass_url
-  ssl_certificate: !secret ssl_certificate
-  ssl_key: !secret ssl_key
-
-# enable map
-map:
-
-# Checks for available updates
-updater:
-
-# Discover some devices automatically
-discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
-
-# Enables support for tracking state changes over time.
-history:
-
-# View all events in a logbook
-logbook:
-
-# Track the sun
-sun:
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
 
 # Text to speech
 tts:
-  platform: google
+  - platform: google_translate
 
+frontend:
+  themes: !include_dir_merge_named themes/
+
+group: !include groups.yaml
+automation: !include_dir_merge_list automation/
+script: !include_dir_merge_named scripts/
+# zone: !include zones.yaml
 sensor: !include sensor.yaml
+binary_sensor: !include binary_sensor.yaml
+switch: !include_dir_merge_list switches/
 
-device_tracker:
-#  - platform: owntracks_http
-#    track_new_devices: yes
+http:
+  base_url: https://hass.kail.io:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
 
-  - platform: unifi
-    host: 192.168.1.99
-    username: !secret unifi_controller_username
-    password: !secret unifi_controller_password
-    verify_ssl: false
-
-zone: !include zones.yaml
-
-media_player:
-  - platform: roku
-    host: 192.168.2.59
-  - platform: roku
-    host: 192.168.2.26
-  - platform: roku
-    host: 192.168.2.29
-  - platform: roku
-    host: 192.168.2.31
-  - platform: roku
-    host: 192.168.2.82
-
-zwave:
-  usb_path: /dev/ttyACM0
+# which rokus are which?
+# 192.168.2.59
+# 192.168.2.26 - Kitchen
+# 192.168.2.29 - Garage
+# 192.168.2.120 - TV Room
+# 192.168.2.82 - Bedroom
+roku:
+  - host: 192.168.2.59
+  - host: 192.168.2.26
+  - host: 192.168.2.29
+  - host: 192.168.2.120
+#  - host: 192.168.2.82
 
 notify:
   - name: Hass
     platform: pushbullet
     api_key: !secret pushbullet_api_key
-  - name: andrews_phone
-    platform: smtp
-    server: smtp.gmail.com
-    port: 587
-    timeout: 15
-    sender: !secret smtp_email
-    encryption: starttls
-    username: !secret smtp_email
-    password: !secret aakail11_gmail_key
-    recipient:
-      - !secret andrew_phone_email
-    sender_name: HASS
-
-script: !include_dir_merge_named scripts/
-
-automation: !include_dir_merge_list automation/
 
 namecheapdns:
   host: hass
@@ -117,32 +50,36 @@ namecheapdns:
   password: !secret namecheap_access_token
 
 input_select:
-  house_mode:
-    name: House Mode
+  andrew_status_dropdown:
+    name: Andrew
     options:
-      - Morning
-      - Day
-      - Evening
-      - Night
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+  maggie_status_dropdown:
+    name: Maggie
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
   presence:
     name: Presence
     options:
       - Home
       - Away
+      - Extended Away
   guest_mode:
     name: Guests
     options:
       - Yes
       - No
-
-simplisafe:
-  accounts:
-    - username: !secret simplisafe_username
-      password: !secret simplisafe_password
-
-group: !include groups.yaml
-
-wemo:
 
 ecovacs:
   username: !secret ecovacs_username
@@ -150,13 +87,12 @@ ecovacs:
   country: !secret ecovacs_country
   continent: !secret ecovacs_continent
 
-
-binary_sensor: !include binary_sensor.yaml
+wemo:
 
 blink:
   username: !secret blink_username
   password: !secret blink_password
-  scan_interval: 3600
+  scan_interval: 300
   binary_sensors:
     monitored_conditions:
       - motion_enabled
@@ -166,7 +102,49 @@ blink:
       - battery
       - temperature
 
-switch:
-  - platform: tplink
-    host: 192.168.2.87
+tplink:
+  discovery: false
+  switch:
+    - host: 192.168.2.87
+    - host: 192.168.2.91
 
+unifi:
+  controllers:
+    - host: 192.168.1.236
+      site: Default
+      detection_time: 150
+
+alexa:
+  smart_home:
+# filter:
+#   exclude_entities:
+#     - script.arm_off
+# entity_config:
+#   script.arm_away:
+#     name: Away Mode
+#     description: Set alarms to away mode
+#   script.arm_home:
+#     name: Night Mode
+#     description: Set alarms to night mode
+
+# broadlink
+# 78:0f:77:00:51:66
+
+light:
+  - platform: flux_led
+    devices:
+      192.168.2.126:
+        name: TV LED Strip
+        protocol: 'ledenet'
+      192.168.2.128:
+        name: Everett's Crib
+        protocol: 'ledenet'
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
