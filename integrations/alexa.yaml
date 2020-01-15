@@ -1,0 +1,13 @@
+---
+alexa:
+  smart_home:
+# filter:
+#   exclude_entities:
+#     - script.arm_off
+# entity_config:
+#   script.arm_away:
+#     name: Away Mode
+#     description: Set alarms to away mode
+#   script.arm_home:
+#     name: Night Mode
+#     description: Set alarms to night mode

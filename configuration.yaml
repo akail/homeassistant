@@ -28,28 +28,6 @@ http:
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
 
-# which rokus are which?
-# 192.168.2.59
-# 192.168.2.26 - Kitchen
-# 192.168.2.29 - Garage
-# 192.168.2.120 - TV Room
-# 192.168.2.82 - Bedroom
-roku:
-  - host: 192.168.2.59
-  - host: 192.168.2.26
-  - host: 192.168.2.29
-  - host: 192.168.2.120
-  - host: 192.168.2.82
-
-notify:
-  - name: Hass
-    platform: pushbullet
-    api_key: !secret pushbullet_api_key
-
-namecheapdns:
-  host: hass
-  domain: kail.io
-  password: !secret namecheap_access_token
 
 input_select:
   andrew_status_dropdown:
@@ -83,53 +61,6 @@ input_select:
       - Yes
       - No
 
-ecovacs:
-  username: !secret ecovacs_username
-  password: !secret ecovacs_password
-  country: !secret ecovacs_country
-  continent: !secret ecovacs_continent
-
-blink:
-  username: !secret blink_username
-  password: !secret blink_password
-  scan_interval: 300
-  binary_sensors:
-    monitored_conditions:
-      - motion_enabled
-      - motion_detected
-  sensors:
-    monitored_conditions:
-      - battery
-      - temperature
-
-tplink:
-  discovery: false
-  switch:
-    - host: 192.168.2.87
-    - host: 192.168.2.91
-
-unifi:
-  controllers:
-    - host: 192.168.1.236
-      site: Default
-      detection_time: 150
-
-alexa:
-  smart_home:
-# filter:
-#   exclude_entities:
-#     - script.arm_off
-# entity_config:
-#   script.arm_away:
-#     name: Away Mode
-#     description: Set alarms to away mode
-#   script.arm_home:
-#     name: Night Mode
-#     description: Set alarms to night mode
-
-# broadlink
-# 78:0f:77:00:51:66
-
 light:
   - platform: flux_led
     devices:
@@ -140,11 +71,11 @@ light:
         name: Everett's Crib
         protocol: 'ledenet'
 
-influxdb:
-  host: a0d7b954-influxdb
-  port: 8086
-  database: homeassistant
-  username: homeassistant
-  password: !secret influxdb_password
-  max_retries: 3
-  default_measurement: state
+#influxdb:
+#  host: a0d7b954-influxdb
+#  port: 8086
+#  database: homeassistant
+#  username: homeassistant
+#  password: !secret influxdb_password
+#  max_retries: 3
+#  default_measurement: state
