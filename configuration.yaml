@@ -81,3 +81,10 @@ light:
 #  password: !secret influxdb_password
 #  max_retries: 3
 #  default_measurement: state
+#
+roku:
+  - host: 192.168.2.59
+  - host: 192.168.2.26
+  - host: 192.168.2.29
+  - host: 192.168.2.120
+  - host: 192.168.2.82
