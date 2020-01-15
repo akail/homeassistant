@@ -12,8 +12,10 @@
         entity_id: light.tv_led_strip
         color_name: >
           {%- if is_state_attr('media_player.tcl_tv', 'source', 'Home') %}
-          orange
+          orangered
           {%- elif is_state_attr('media_player.tcl_tv', 'source', 'Hulu') %}
+          green
+          {%- elif is_state_attr('media_player.tcl_tv', 'source', 'Spotify Music') %}
           green
           {%- elif is_state_attr('media_player.tcl_tv', 'source', 'Netflix') %}
           red
@@ -22,7 +24,7 @@
           {%- elif is_state_attr('media_player.tcl_tv', 'source', 'YouTube') %}
           red
           {%- else %}
-          gray
+          orangered
           {%- endif %}
 
 - alias: "TV LED Off"

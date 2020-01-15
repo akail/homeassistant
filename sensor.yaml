@@ -27,3 +27,22 @@
     alarm_mode:
       value_template: '{{ states.input_select.alarm_mode.state }}'
       friendly_name: 'Alarm Mode'
+
+# Arlo baby camera
+- platform: arlo
+  monitored_conditions:
+    - captured_today
+    - last_capture
+    - total_cameras
+    - battery_level
+    - signal_strength
+    - temperature
+    - humidity
+    - air_quality
+
+- platform: pushbullet
+  api_key: !secret pushbullet_api_key
+  monitored_conditions:
+    - body
+    - sender_email
+    - title

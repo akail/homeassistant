@@ -1,4 +1,6 @@
 ---
+homeassistant:
+  packages: !include_dir_named integrations/
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
@@ -37,7 +39,7 @@ roku:
   - host: 192.168.2.26
   - host: 192.168.2.29
   - host: 192.168.2.120
-#  - host: 192.168.2.82
+  - host: 192.168.2.82
 
 notify:
   - name: Hass
@@ -86,8 +88,6 @@ ecovacs:
   password: !secret ecovacs_password
   country: !secret ecovacs_country
   continent: !secret ecovacs_continent
-
-wemo:
 
 blink:
   username: !secret blink_username

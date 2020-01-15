@@ -1,0 +1,6 @@
+- platform: wake_on_lan
+  name: "OMV NAS"
+  mac: 74:D0:2B:2B:49:D6
+  host: 192.168.1.236
+  turn_off:
+    service: shell_command.turn_off_omv
