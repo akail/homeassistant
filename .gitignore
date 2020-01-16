@@ -5,6 +5,7 @@
 *.key
 *.conf
 *.pickle
+*.pem
 .cloud
 .storage
 .uuid

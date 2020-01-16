@@ -1,0 +1,8 @@
+- platform: flux_led
+  devices:
+    192.168.2.126:
+      name: TV LED Strip
+      protocol: 'ledenet'
+    192.168.2.128:
+      name: Everett's Crib
+      protocol: 'ledenet'

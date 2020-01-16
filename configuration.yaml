@@ -17,71 +17,35 @@ tts:
 frontend:
   themes: !include_dir_merge_named themes/
 
-group: !include groups.yaml
-automation: !include_dir_merge_list automation/
-script: !include_dir_merge_named scripts/
-# zone: !include zones.yaml
-sensor: !include sensor.yaml
-binary_sensor: !include binary_sensor.yaml
-switch: !include_dir_merge_list switches/
-
 http:
   base_url: https://hass.kail.io:8123
   ssl_certificate: !secret ssl_certificate
   ssl_key: !secret ssl_key
 
+# Core Configuration
+group: !include includes/groups.yaml
+automation: !include_dir_merge_list automation/
+script: !include_dir_merge_named scripts/
+zone: !include includes/zones.yaml
+sensor: !include includes/sensor.yaml
+binary_sensor: !include includes/binary_sensor.yaml
+switch: !include_dir_merge_list switches/
+input_select: !include includes/input_selects.yaml
 
-input_select:
-  andrew_status_dropdown:
-    name: Andrew
-    options:
-      - Home
-      - Just Arrived
-      - Just Left
-      - Away
-      - Extended Away
-    initial: Home
-  maggie_status_dropdown:
-    name: Maggie
-    options:
-      - Home
-      - Just Arrived
-      - Just Left
-      - Away
-      - Extended Away
-    initial: Home
+light: !include includes/lights.yaml
 
-  presence:
-    name: Presence
-    options:
-      - Home
-      - Away
-      - Extended Away
-  guest_mode:
-    name: Guests
-    options:
-      - Yes
-      - No
-
-light:
-  - platform: flux_led
-    devices:
-      192.168.2.126:
-        name: TV LED Strip
-        protocol: 'ledenet'
-      192.168.2.128:
-        name: Everett's Crib
-        protocol: 'ledenet'
-
-#influxdb:
-#  host: a0d7b954-influxdb
-#  port: 8086
-#  database: homeassistant
-#  username: homeassistant
-#  password: !secret influxdb_password
-#  max_retries: 3
-#  default_measurement: state
+# influxdb:
+#   host: a0d7b954-influxdb
+#   port: 8086
+#   database: homeassistant
+#   username: homeassistant
+#   password: !secret influxdb_password
+#   max_retries: 3
+#   default_measurement: state
 #
+
+# Other components
+# This cannot be moved into the integrations directory
 roku:
   - host: 192.168.2.59
   - host: 192.168.2.26
