@@ -1,10 +1,9 @@
 ---
 pi_hole:
-  - host: pihole.kail.io
-    ssl: true
-    verify_ssl: false
-    api_key: !secret nas_pihole_api_key
-    name: NAS pi-hole
-
   - host: localhost:4865
     name: HASS Pi-hole
+#  - host: pihole.kail.io
+#    ssl: true
+#    verify_ssl: false
+#    api_key: !secret nas_pihole_api_key
+#    name: NAS pi-hole
