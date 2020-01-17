@@ -29,3 +29,10 @@ guest_mode:
   options:
     - Yes
     - No
+
+git_update_mode:
+  name: GIT Update Mode
+  options:
+    - Off
+    - Ask for Permission
+    - Auto Restart

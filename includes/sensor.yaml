@@ -10,6 +10,9 @@
     - precip_accumulation
     - precip_probability
     - precip_intensity
+    - alerts
+    - humidity
+    - cloud_cover
 
 - platform: statistics
   entity_id: sensor.dark_sky_precip_intensity
@@ -41,14 +44,16 @@
     - humidity
     - air_quality
 
-- platform: pushbullet
-  api_key: !secret pushbullet_api_key
-  monitored_conditions:
-    - body
-    - sender_email
-    - title
-
 - platform: travisci
   api_key: !secret github_api_key
   repository:
     - homeassistant
+
+- platform: glances
+  host: 127.0.0.1
+  port: 61209
+  version: 3
+  resources:
+    - 'processor_load'
+    - 'memory_use_percent'
+    - 'disk_use_percent'

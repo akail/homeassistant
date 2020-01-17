@@ -1,0 +1,10 @@
+---
+config_update_available:
+  name: Configuration Update Available
+  initial: off
+  icon: mdi:update
+
+vacuum_ready_to_clean:
+  name: Vacuum is ready to be cleaned
+  initial: off
+  icon: mdi:robot-vacuum
