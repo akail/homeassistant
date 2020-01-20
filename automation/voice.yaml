@@ -1,0 +1,25 @@
+---
+- alias: "Notify Person Home"
+  trigger:
+    - platform: state
+      entity_id: input_select.andrew_status_dropdown
+      to: 'Just Arrived'
+    - platform: state
+      entity_id: input_select.maggie_status_dropdown
+      to: 'Just Arrived'
+  condition:
+    - condition: state
+      entity_id: input_select.presence
+      state: 'Home'
+  action:
+    - service: notify.alexa_media_everywhere
+      data_template:
+        message: >
+          {% if trigger.entity_id == 'input_select.andrew_status_dropdown'%}
+          Andrew is home
+          {% elif trigger.entity_id == 'input_select.maggie_status_dropdown'%}
+          Maggie is home
+          {% endif %}
+        data:
+          type: "announce"
+
