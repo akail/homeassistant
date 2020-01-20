@@ -45,3 +45,24 @@ arm_off:
     - service: alarm_control_panel.alarm_disarm
       data:
         entity_id: alarm_control_panel.blink_home
+
+
+blink_home:
+  alias: Blink Home Mode
+  sequence:
+    - service: camera.disable_motion_detection
+      data:
+        entity_id: camera.blink_garage
+    - service: camera.disable_motion_detection
+      data:
+        entity_id: camera.blink_back_patio
+
+blink_away:
+  alias: Blink Away Mode
+  sequence:
+    - service: camera.enable_motion_detection
+      data:
+        entity_id: camera.blink_garage
+    - service: camera.disable_motion_detection
+      data:
+        entity_id: camera.blink_back_patio

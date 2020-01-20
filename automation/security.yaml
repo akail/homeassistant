@@ -13,9 +13,7 @@
         entity_id: input_select.presence
         state: 'Away'
   action:
-    - service: alarm_control_panel.alarm_arm_away
-      data:
-        entity_id: alarm_control_panel.blink_home
+    - service: script.blink_away
 
 - alias: Security Home Mode
   trigger:
@@ -27,10 +25,8 @@
       entity_id: input_select.presence
       state: 'Home'
   action:
-    - service: alarm_control_panel.alarm_disarm
-      data:
-        entity_id: alarm_control_panel.blink_home
-    - service: notify.hass
+    - service: script.blink_home
+    - service: notify.tbot
       data_template:
         title: Home Assistant
         message: Security home activated
@@ -40,54 +36,11 @@
     - platform: time
       at: '23:00:00'
   action:
-    - service: alarm_control_panel.alarm_arm_away
-      data:
-        entity_id: alarm_control_panel.blink_home
+    - service: script.blink_away
 
 - alias: Blink morning mode
   trigger:
     - platform: time
       at: '05:30:00'
   action:
-    - service: alarm_control_panel.alarm_disarm
-      data:
-        entity_id: alarm_control_panel.blink_home
-
-# - alias: Set Away Mode
-#   trigger:
-#     - platform: state
-#       entity_id: device_tracker.andrew_phone
-#       to: 'Home'
-#   action:
-#     - service: alarm_control_panel.alarm_arm_away
-#       data:
-#         entity_id: alarm_control_panel.simplisafe
-#     - service: alarm_control_panel.alarm_arm_away
-#       data:
-#         entity_id: alarm_control_panel.blink_sync
-#     - service: notify.hass
-#       data_template:
-#         title: Home Assistant
-#         channel: hasskail
-#         message: Turning on away mode
-
-# - alias: Set Home Mode
-#   trigger:
-#     - platform: state
-#       entity_id: device_tracker.andrew_phone
-#       to: 'Away'
-#   action:
-#     - service: alarm_control_panel.alarm_arm_home
-#       data:
-#         entity_id: alarm_control_panel.simplisafe
-#     - service: alarm_control_panel.alarm_arm_home
-#       data:
-#         entity_id: alarm_control_panel.blink_sync
-#     - service: notify.hass
-#       data_template:
-#         title: Home Assistant
-#         channel: hasskail
-#         message: Turning on home mode
-#     - service: alarm_control_panel.alarm_disarm
-#       data:
-#         entity_id: alarm_control_panel.simplisafe
+    - service: script.blink_home

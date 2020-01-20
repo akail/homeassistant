@@ -1,0 +1,21 @@
+---
+- alias: 'Blink Updates'
+  trigger:
+    - platform: time_pattern
+      hours: "*"
+  action:
+    - service: blink.trigger_camera
+      data:
+        name: "Garage"
+    - delay: '00:04:00'
+    - service: blink.trigger_camera
+      data:
+        name: "Back Patio"
+    - delay: '00:04:00'
+    - service: blink.trigger_camera
+      data:
+        name: "Front Porch"
+    - delay: '00:04:00'
+    - service: blink.trigger_camera
+      data:
+        name: "Driveway"
