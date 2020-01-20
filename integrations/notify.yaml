@@ -3,3 +3,7 @@ notify:
   - name: Hass
     platform: pushbullet
     api_key: !secret pushbullet_api_key
+
+  - name: tbot
+    platform: telegram
+    chat_id: 1032366109

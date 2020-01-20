@@ -1,1 +1,14 @@
 ---
+tv_room:
+  name: TV Room
+  entities:
+    - light.tv_led_strip
+    - switch.andrews_tv_room_lamp
+    - switch.test_tplink
+everetts_room:
+  name: Everett's Room
+  entities:
+    - light.everett_s_crib
+    - light.everetts_color_light
+    - switch.everetts_fan_light
+    - light.office_lamp
