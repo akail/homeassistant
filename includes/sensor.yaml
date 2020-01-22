@@ -46,6 +46,7 @@
 
 - platform: travisci
   api_key: !secret github_api_key
+  branch: master
   repository:
     - homeassistant
 
