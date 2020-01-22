@@ -14,7 +14,7 @@
   action:
     - service: climate.set_temperature
       data_template:
-        entity_id: climate.downstairs_ac
+        entity_id: climate.upstairs_ac
         target_temp_high: >
           {%- if now().hour >= 7 and now().hour < 22 %}
             {%- if is_state('input_select.guest_mode', 'True') %}
@@ -95,7 +95,5 @@
       data_template:
         title: Home Assistant
         message: |
-            Dowstairs Heating set to {{state_attr('climate.downstairs_ac', 'target_temp_low')}}
-            Dowstairs Cooling set to {{state_attr('climate.downstairs_ac', 'target_temp_high')}}
-            Upstairs Heating set to {{state_attr('climate.upstairs_ac', 'target_temp_low')}}
-            Upstairs Cooling set to {{state_attr('climate.upstairs_ac', 'target_temp_high')}}
+            Dowstairs set to {{state_attr('climate.downstairs_ac', 'target_temp_low')}}/{{state_attr('climate.downstairs_ac', 'target_temp_high')}}
+            Upstairs set to {{state_attr('climate.upstairs_ac', 'target_temp_low')}}/{{state_attr('climate.upstairs_ac', 'target_temp_high')}}
