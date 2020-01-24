@@ -91,7 +91,7 @@
           {%- endif %}
 
     - delay: '00:01:00'
-    - service: notify.hass
+    - service: notify.tbot
       data_template:
         title: Home Assistant
         message: |

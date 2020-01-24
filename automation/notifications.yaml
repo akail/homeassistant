@@ -4,7 +4,7 @@
     - platform: state
       entity_id: input_select.presence
   action:
-    - service: notify.hass
+    - service: notify.tbot
       data_template:
         title: Home Assistant
         message: >
@@ -21,7 +21,7 @@
     for:
       hours: 24
   action:
-    - service: notify.hass
+    - service: notify.tbot
       data_template:
         title: Home Assistant
         message: Guest mode still activated
@@ -34,7 +34,7 @@
 #       from: "off"
 #       to: "on"
 #   action:
-#     - service: notify.hass
+#     - service: notify.tbot
 #       data:
 #         title: home assistant
 #         message: Motion detected in office

@@ -4,16 +4,18 @@
     - platform: time
       at: '14:30:00'
   condition:
-    - condition: time
-      weekday:
-        - mon
-        - wed
-        - fri
-# - condition: state
-#   entity_id: binary_sensor.bedroom_door_status
-#   state: 'off'
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - wed
+          - fri
+      - condition: state
+        entity_id: binary_sensor.master_bedroom_door
+        state: 'off'
   action:
-    - service: notify.hass
+    - service: notify.tbot
       data:
         title: Home Assistant
         message: "Running vacuum"
@@ -22,7 +24,3 @@
     - delay: '02:00:00'
     - service: vacuum.return_to_base
       entity_id: vacuum.bumper
-    - service: calendar.todoist_new_task
-      data:
-        content: Clean Bumper
-        due_date_string: today
