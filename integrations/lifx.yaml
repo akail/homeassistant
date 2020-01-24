@@ -1,4 +1,4 @@
 ---
 lifx:
   light:
-    - broadcast: 192.168.2.255
+    - broadcast: 192.168.2.130
