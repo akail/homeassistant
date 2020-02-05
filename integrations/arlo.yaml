@@ -1,4 +1,0 @@
----
-#arlo:
-#  username: !secret arlo_username
-#  password: !secret arlo_password

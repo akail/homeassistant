@@ -1,6 +1,0 @@
----
-unifi:
-  controllers:
-    - host: 192.168.1.236
-      site: Default
-      detection_time: 150
