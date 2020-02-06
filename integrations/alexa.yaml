@@ -1,76 +1,76 @@
 ---
 alexa:
   smart_home:
-  filter:
-    include_entities:
-      - light.atrium
-      - light.dining_room_hutch
-      - light.dining_room_switch
-      - light.everett_s_crib
-      - light.everetts_color_light
-      - light.office_lamp
-      - light.tv_led_strip
-      - switch.andrews_tv_room_lamp
-      - switch.everetts_fan_light
-      - switch.front_porch
-      - switch.living_room_lamp
-      - switch.test_tplink
-      - climate.upstairs_ac
-      - climate.downstairs_ac
-      - fan.everetts_fan
-    exclude_domains:
-      - alarm_control_panel
-      - alert
-      - automation
-      - binary_sensor
-      - climate
-      - cover
-      - fan
-      - group
-      - input_boolean
-      - light
-      - lock
-      - media_player
-      - scene
-      - script
-      - sensor
-      - switch
-      - vacuum
-  entity_config:
-    light.atrium:
-      name: Hallway Light
-    light.dining_room_hutch:
-      name: Dining Room Hutch Light
-    light.dining_room_switch:
-      name: Dining Room Light
-    light.everett_s_crib:
-      name: Everett's Crib
-    light.everetts_color_light:
-      name: Everett's Color Light
-    light.office_lamp:
-      name: Living Room Lamp
-    light.tv_led_strip:
-      name: TV LED Strip
-    switch.andrews_tv_room_lamp:
-      name: Andrew TV Room Lamp
-      display_categories: LIGHT
-    switch.everetts_fan_light:
-      name: Everett's Fan Light
-      display_categories: LIGHT
-    switch.front_porch:
-      name: Front Porch Light
-      display_categories: LIGHT
-    switch.living_room_lamp:
-      name: Living Room Switch
-    switch.test_tplink:
-      name: Maggies TV Room Lamp
-      display_categories: LIGHT
-    climate.upstairs_ac:
-      name: Upstairs AC
-      display_categories: THERMOSTAT
-    climate.downstairs_ac:
-      name: Downstairs AC
-      display_categories: THERMOSTAT
-    fan.everetts_fan:
-      name: Everett's Fan
-      display_categories: FAN
+    filter:
+      include_entities:
+        - light.atrium
+        - light.dining_room_hutch
+        - light.dining_room_switch
+        - light.everett_s_crib
+        - light.everetts_color_light
+        - light.office_lamp
+        - light.tv_led_strip
+        - switch.andrews_tv_room_lamp
+        - switch.everetts_fan_light
+        - switch.front_porch
+        - switch.living_room_lamp
+        - switch.test_tplink
+        - climate.upstairs_ac
+        - climate.downstairs_ac
+        - fan.everetts_fan
+      exclude_domains:
+        - alarm_control_panel
+        - alert
+        - automation
+        - binary_sensor
+        - climate
+        - cover
+        - fan
+        - group
+        - input_boolean
+        - light
+        - lock
+        - media_player
+        - scene
+        - script
+        - sensor
+        - switch
+        - vacuum
+    entity_config:
+      light.atrium:
+        name: Hallway Light
+      light.dining_room_hutch:
+        name: Dining Room Hutch Light
+      light.dining_room_switch:
+        name: Dining Room Light
+      light.everett_s_crib:
+        name: Everett's Crib
+      light.everetts_color_light:
+        name: Everett's Color Light
+      light.office_lamp:
+        name: Living Room Lamp
+      light.tv_led_strip:
+        name: TV LED Strip
+      switch.andrews_tv_room_lamp:
+        name: Andrew TV Room Lamp
+        display_categories: LIGHT
+      switch.everetts_fan_light:
+        name: Everett's Fan Light
+        display_categories: LIGHT
+      switch.front_porch:
+        name: Front Porch Light
+        display_categories: LIGHT
+      switch.living_room_lamp:
+        name: Living Room Switch
+      switch.test_tplink:
+        name: Maggies TV Room Lamp
+        display_categories: LIGHT
+      climate.upstairs_ac:
+        name: Upstairs AC
+        display_categories: THERMOSTAT
+      climate.downstairs_ac:
+        name: Downstairs AC
+        display_categories: THERMOSTAT
+      fan.everetts_fan:
+        name: Everett's Fan
+        display_categories: FAN
