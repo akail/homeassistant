@@ -12,3 +12,4 @@ everetts_room:
     - light.everetts_color_light
     - switch.everetts_fan_light
     - light.everett_s_lamp
+    - fan.everetts_fan

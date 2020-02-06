@@ -35,6 +35,7 @@ alexa:
       - script
       - sensor
       - switch
+      - vacuum
   entity_config:
     light.atrium:
       name: Hallway Light
@@ -47,7 +48,7 @@ alexa:
     light.everetts_color_light:
       name: Everett's Color Light
     light.office_lamp:
-      name: Everetts Light
+      name: Living Room Lamp
     light.tv_led_strip:
       name: TV LED Strip
     switch.andrews_tv_room_lamp:
