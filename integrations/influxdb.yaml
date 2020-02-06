@@ -14,6 +14,7 @@ influxdb:
       - sensor.garage_door_detector_battery_level
       - sensor.tv_room_pir_motion_sensor_battery_level
       - sensor.upstairs_ac_battery_level
+      - sensor.aarlo_battery_level_everett
       - sensor.blink_back_patio_temperature
       - sensor.blink_driveway_temperature
       - sensor.blink_front_porch_temperature
@@ -22,6 +23,9 @@ influxdb:
       - sensor.downstairs_ac_temperature
       - sensor.tv_room_pir_motion_sensor_temperature
       - sensor.upstairs_ac_temperature
+      - sensor.aarlo_temperature_everett
       - sensor.speedtest_download
       - sensor.speedtest_ping
       - sensor.speedtest_upload
+      - sensor.aarlo_humidity_everett
+      - sensor.aarlo_air_quality_everett
