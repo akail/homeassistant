@@ -33,16 +33,16 @@
       friendly_name: 'Alarm Mode'
 
 # Arlo baby camera
-- platform: arlo
-  monitored_conditions:
-    - captured_today
-    - last_capture
-    - total_cameras
-    - battery_level
-    - signal_strength
-    - temperature
-    - humidity
-    - air_quality
+#- platform: arlo
+#  monitored_conditions:
+#    - captured_today
+#    - last_capture
+#    - total_cameras
+#    - battery_level
+#    - signal_strength
+#    - temperature
+#    - humidity
+#    - air_quality
 
 - platform: travisci
   api_key: !secret github_api_key
