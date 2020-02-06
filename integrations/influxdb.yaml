@@ -1,0 +1,27 @@
+---
+influxdb:
+  host: !secret influx_db_host
+  username: !secret influx_db_username
+  password: !secret influx_db_password
+  database: homeassistant
+  include:
+    entities:
+      - sensor.blink_back_patio_battery
+      - sensor.blink_driveway_battery
+      - sensor.blink_front_porch_battery
+      - sensor.blink_garage_battery
+      - sensor.downstairs_ac_battery_level
+      - sensor.garage_door_detector_battery_level
+      - sensor.tv_room_pir_motion_sensor_battery_level
+      - sensor.upstairs_ac_battery_level
+      - sensor.blink_back_patio_temperature
+      - sensor.blink_driveway_temperature
+      - sensor.blink_front_porch_temperature
+      - sensor.blink_garage_temperature
+      - sensor.dark_sky_temperature
+      - sensor.downstairs_ac_temperature
+      - sensor.tv_room_pir_motion_sensor_temperature
+      - sensor.upstairs_ac_temperature
+      - sensor.speedtest_download
+      - sensor.speedtest_ping
+      - sensor.speedtest_upload
