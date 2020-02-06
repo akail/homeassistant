@@ -10,3 +10,8 @@
 #         {%- else -%}
 #         false
 #         {%- endif -%}
+- platform: aarlo
+  monitored_conditions:
+  - motion
+  - sound
+  - ding
