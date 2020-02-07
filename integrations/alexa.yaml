@@ -10,6 +10,7 @@ alexa:
         - light.everetts_color_light
         - light.office_lamp
         - light.tv_led_strip
+        - light.everett_s_lamp
         - switch.andrews_tv_room_lamp
         - switch.everetts_fan_light
         - switch.front_porch
@@ -74,3 +75,6 @@ alexa:
       fan.everetts_fan:
         name: Everett's Fan
         display_categories: FAN
+      light.everett_s_lamp:
+        name: Everett's Lamp
+
