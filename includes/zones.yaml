@@ -1,1 +1,18 @@
 ---
+- name: Home
+  latitude: 33.479498
+  longitude: -81.716718
+  radius: 200
+  icon: mdi:account-multiple
+
+- name: SRS
+  latitude: 33.344311
+  longitude: -81.740091
+  radius: 500
+  icon: mdi:flask-outline
+
+- name: CHOG
+  latitude: 33.471181
+  longitude: -81.987698
+  radius: 1500
+  icon: mdi:hospital-building

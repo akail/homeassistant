@@ -1,4 +1,0 @@
----
-camera:
-  - platform: arlo
-    ffmpeg_arguments: "-pred 1 -q:v 2"
