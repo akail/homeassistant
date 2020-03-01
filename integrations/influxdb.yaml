@@ -29,3 +29,6 @@ influxdb:
       - sensor.speedtest_upload
       - sensor.aarlo_humidity_everett
       - sensor.aarlo_air_quality_everett
+      - sensor.cyber_power_battery_runtime
+      - sensor.cyber_power_batter_charge
+      - sensor.cyber_power_load
