@@ -22,5 +22,5 @@
     tv_room_motion:
       friendly_name: "TV Room Motion"
       device_class: motion
-      valuue_template: >-
+      value_template: >-
         {{states('sensor.tv_room_pir_motion_sensor_alarm_level') |int > 200 }}
