@@ -1,0 +1,56 @@
+---
+# If the UPS has been discharging for 5 minutes, put the main server into standby
+# What do we do if the power stays out for longer?
+- alias: 'UPS Discharging'
+  trigger:
+    - platform: state
+      entity_id: sensor.cyber_power_status_data
+  condition:
+    - condition: state
+      entity_id: sensor.cyber_power_status_data
+      state: 'OB DISCHRG'
+      for:
+        minutes: 5
+  action:
+    - service: notify.tbot
+      data:
+        title: Home Assistant
+        message: "System on battery.  Sleeping main server"
+    - service: switch.turn_off
+      entity_id: switch.omv_nas
+
+- alias: 'UPS Charging'
+  trigger:
+    - platform: state
+      entity_id: sensor.cyber_power_battery_runtime
+  condition:
+    - condition: state
+      entity_id: sensor.cyber_power_status_data
+      state: 'OL CHRG'
+      for:
+        minutes: 2
+  action:
+    - service: notify.tbot
+      data:
+        title: Home Assistant
+        message: "System charging .  Turning server back on"
+    - service: switch.turn_on
+      entity_id: switch.omv_nas
+
+- alias: 'UPS Discharging - Critical'
+  trigger:
+    - platform: state
+      entity_id: sensor.cyber_power_battery_runtime
+  condition:
+    - condition: template
+      value_template: "{{states('sensor.cyber_power_battery_runtime')|int < 300}}"
+  action:
+    - service: notify.tbot
+      data:
+        title: Home Assistant
+        message: "System battery critical. Safely shutting everything down"
+    - service: switch.turn_on
+      entity_id: switch.omv_nas
+    - delay: '00:00:30'
+    - service: shell_command.shutdown_omv
+    - service: hassio.host_shutdown

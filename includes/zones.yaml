@@ -1,10 +1,4 @@
 ---
-- name: Home
-  latitude: 33.479498
-  longitude: -81.716718
-  radius: 200
-  icon: mdi:account-multiple
-
 - name: SRS
   latitude: 33.344311
   longitude: -81.740091

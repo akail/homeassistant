@@ -58,3 +58,15 @@
     - 'processor_load'
     - 'memory_use_percent'
     - 'disk_use_percent'
+
+- platform: nut
+  name: 'Cyber Power'
+  host: 40817795-nut
+  username: !secret nutuser
+  password: !secret nutpassword
+  resources:
+    - ups.load
+    - ups.status
+    - battery.runtime
+    - battery.charge
+
