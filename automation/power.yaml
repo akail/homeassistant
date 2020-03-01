@@ -5,10 +5,7 @@
   trigger:
     - platform: state
       entity_id: sensor.cyber_power_status_data
-  condition:
-    - condition: state
-      entity_id: sensor.cyber_power_status_data
-      state: 'OB DISCHRG'
+      to: 'OB DISCHRG'
       for:
         minutes: 5
   action:
@@ -22,11 +19,8 @@
 - alias: 'UPS Charging'
   trigger:
     - platform: state
-      entity_id: sensor.cyber_power_battery_runtime
-  condition:
-    - condition: state
       entity_id: sensor.cyber_power_status_data
-      state: 'OL CHRG'
+      to: 'OL CHRG'
       for:
         minutes: 2
   action:
