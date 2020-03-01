@@ -38,6 +38,43 @@
     - service: light.turn_off
       data:
         entity_id: light.tv_led_strip
+
 - alias: "TV Room Lights On"
   trigger:
+    - platform: state
+      entity_id: binary_sensor.tv_room_motion
+      to: on
+  condition:
+    - condition: template
+      value_template: "{{ states('media_player.tcl_tv') == 'standby'}}"
+    - condition: sun
+      after: sunset
+    - condition: sun
+      before: sunrise
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.test_tplink
+    - service: switch.turn_on
+      data:
+        entity_id: switch.andrews_tv_room_lamp
+
+- alias: "TV Room Lights Off"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.tv_room_motion
+      to: off
+      for:
+        minutes: 5
+  condition:
+    - condition: template
+      value_template: "{{ states('media_player.tcl_tv') == 'standby'}}"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.test_tplink
+    - service: switch.turn_off
+      data:
+        entity_id: switch.andrews_tv_room_lamp
+
 

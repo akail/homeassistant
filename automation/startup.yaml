@@ -1,0 +1,12 @@
+---
+- alias: "On startup"
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: '00:01:00'
+    - service: notify.tbot
+      data:
+        title: Home Assistant
+        message: "Homeassistant started"
+
