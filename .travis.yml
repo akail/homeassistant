@@ -6,7 +6,9 @@ install:
   - "pip3 install homeassistant"
 script:
   - "mv secrets.yaml.sample secrets.yaml"
-  - "rm integrations/aarlo.yaml"
+  - "mkdir custom_components"
+  - "git clone https://github.com/twrecked/hass-aarlo.git"
+  - "mv hass-aarlo/custom_components/aarlo custom_components/"
   - "hass --version"
   - "hass -c . --script check_config | tee check.output"
   - '! less check.output | grep -q "Failed config"'
