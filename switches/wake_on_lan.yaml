@@ -1,3 +1,4 @@
+---
 - platform: wake_on_lan
   name: "OMV NAS"
   mac: 74:D0:2B:2B:49:D6

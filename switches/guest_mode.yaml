@@ -1,0 +1,17 @@
+---
+- platform: template
+  switches:
+    guest_mode:
+      friendly_name: Guest Mode
+      entity_id: input_select.guest_mode
+      value_template: "{{ is_state('input_select.guest_mode', 'False')}}"
+      turn_on:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.guest_mode
+          option: True
+      turn_off:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.guest_mode
+          option: False

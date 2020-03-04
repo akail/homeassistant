@@ -1,7 +1,19 @@
 ---
 # If the UPS has been discharging for 5 minutes, put the main server into standby
 # What do we do if the power stays out for longer?
-- alias: 'UPS Discharging'
+- alias: "UPS Discharging"
+  trigger:
+    - platform: state
+      entity_id: sensor.cyber_power_status_data
+      to: 'OB DISCHRG'
+      from: 'OL'
+  action:
+    - service: notify.tbot
+      data:
+        title: Home Assistant
+        message: "System on battery."
+
+- alias: 'UPS Discharging - Conserve power'
   trigger:
     - platform: state
       entity_id: sensor.cyber_power_status_data
