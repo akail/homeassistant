@@ -11,6 +11,10 @@ alexa:
         - light.office_lamp
         - light.tv_led_strip
         - light.everett_s_lamp
+        - light.desk_lamp
+        - light.andrew_bedside_lamp
+        - light.maggies_bedside_lamp
+
         - switch.andrews_tv_room_lamp
         - switch.everetts_fan_light
         - switch.front_porch
@@ -58,6 +62,12 @@ alexa:
         name: Living Room Lamp
       light.tv_led_strip:
         name: TV LED Strip
+      light.desk_lamp:
+        name: Desk Lamp
+      light.andrew_bedside_lamp:
+        name: Andrew's Bedside Lamp
+      light.maggies_bedside_lamp:
+        name: Maggie Bedside Lamp
       switch.andrews_tv_room_lamp:
         name: Andrew TV Room Lamp
         display_categories: LIGHT
@@ -67,6 +77,8 @@ alexa:
       switch.front_porch:
         name: Front Porch Light
         display_categories: LIGHT
+      switch.guest_mode:
+        name: Guest Mode
       switch.living_room_lamp:
         name: Living Room Switch
       switch.test_tplink:
