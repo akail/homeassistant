@@ -14,12 +14,12 @@ alexa:
         - light.desk_lamp
         - light.andrew_bedside_lamp
         - light.maggies_bedside_lamp
-
         - switch.andrews_tv_room_lamp
         - switch.everetts_fan_light
         - switch.front_porch
         - switch.living_room_lamp
         - switch.test_tplink
+        - switch.guest_mode
         - climate.upstairs_ac
         - climate.downstairs_ac
         - fan.everetts_fan
