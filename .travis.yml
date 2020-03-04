@@ -6,6 +6,7 @@ install:
   - "pip3 install homeassistant"
 script:
   - "mv secrets.yaml.sample secrets.yaml"
+  - "rm integrations/aarlo.yaml"
   - "hass --version"
   - "hass -c . --script check_config | tee check.output"
   - '! less check.output | grep -q "Failed config"'
