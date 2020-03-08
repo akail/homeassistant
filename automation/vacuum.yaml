@@ -11,9 +11,6 @@
           - mon
           - wed
           - fri
-      - condition: state
-        entity_id: binary_sensor.master_bedroom_door
-        state: 'off'
   action:
     - service: notify.tbot
       data:
