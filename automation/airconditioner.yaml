@@ -18,17 +18,17 @@
         target_temp_high: >
           {%- if now().hour >= 7 and now().hour < 20 %}
             {%- if is_state('input_select.presence', 'Home') %}
-              74
+              73
             {%- elif is_state('input_select.presence', 'Away') %}
-              76
+              75
             {%- else %}
-              78
+              77
             {%- endif %}
           {%- else %}
             {%- if is_state('input_select.presence', 'Home') %}
-              72
+              71
             {%- elif is_state('input_select.presence', 'Away') %}
-              75
+              73
             {%- else %}
               78
             {%- endif %}
@@ -41,6 +41,52 @@
             66
           {%- else %}
             64
+          {%- endif %}
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.upstairs_ac
+        target_temp_high: >
+          {%- if now().hour >= 7 and now().hour < 22 %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+            74
+            {%- else %}
+              {%- if is_state('input_select.presence', 'Home') %}
+              73
+              {%- elif is_state('input_select.presence', 'Away') %}
+              75
+              {%- else %}
+              77
+              {%- endif %}
+            {%- endif %}
+
+          {%- else %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+            72
+            {%- else %}
+            74
+            {%- endif %}
+          {%- endif %}
+
+        target_temp_low: >
+          {%- if now().hour >= 7 and now().hour < 22 %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+            67
+            {%- else %}
+              {%- if is_state('input_select.presence', 'Home') %}
+                68
+              {%- elif is_state('input_select.presence', 'Away') %}
+                66
+              {%- else %}
+                64
+              {%- endif %}
+            {%- endif %}
+
+          {%- else %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+              69
+            {%- else %}
+              64
+            {%- endif %}
           {%- endif %}
 
     - delay: '00:01:00'

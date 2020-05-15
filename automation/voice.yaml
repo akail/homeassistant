@@ -11,6 +11,8 @@
     - condition: state
       entity_id: input_select.presence
       state: 'Home'
+    - condition: time
+      before: '08:00:00'
   action:
     - service: notify.alexa_media_everywhere
       data_template:
