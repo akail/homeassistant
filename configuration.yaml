@@ -59,3 +59,7 @@ roku:
   - host: 192.168.2.120
   - host: 192.168.2.82
   - host: 192.168.2.31
+
+rest_command:
+  healthcheck:
+    url: 'health.kail.io/ping/a1ed66d4-55a4-4163-abf8-b08580976fe5'

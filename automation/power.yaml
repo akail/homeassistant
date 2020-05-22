@@ -4,7 +4,7 @@
 - alias: "UPS Discharging"
   trigger:
     - platform: state
-      entity_id: sensor.cyber_power_status_data
+      entity_id: sensor.myups_satus
       to: 'OB DISCHRG'
       from: 'OL'
   action:
@@ -16,7 +16,7 @@
 - alias: 'UPS Discharging - Conserve power'
   trigger:
     - platform: state
-      entity_id: sensor.cyber_power_status_data
+      entity_id: sensor.myups_satus
       to: 'OB DISCHRG'
       for:
         minutes: 5
@@ -31,7 +31,7 @@
 - alias: 'UPS Charging'
   trigger:
     - platform: state
-      entity_id: sensor.cyber_power_status_data
+      entity_id: sensor.myups_satus
       to: 'OL CHRG'
       for:
         minutes: 2
@@ -46,10 +46,10 @@
 - alias: 'UPS Discharging - Critical'
   trigger:
     - platform: state
-      entity_id: sensor.cyber_power_battery_runtime
+      entity_id: sensor.myups_battery_runtime
   condition:
     - condition: template
-      value_template: "{{states('sensor.cyber_power_battery_runtime')|int < 300}}"
+      value_template: "{{states('sensor.myups_battery_runtime')|int < 300}}"
   action:
     - service: notify.tbot
       data:
