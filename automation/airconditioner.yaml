@@ -85,7 +85,7 @@
       data_template:
         title: Home Assistant
         message: |
-            Dowstairs set to {{state_attr('climate.downstairs_ac', 'target_temp_low')}}/{{state_attr('climate.downstairs_ac', 'target_temp_high')}}
+            Dowstairs set to {{state_attr('climate.downstairs_ac', 'temperature')}}
             Upstairs set to {{state_attr('climate.upstairs_ac', 'target_temp_low')}}/{{state_attr('climate.upstairs_ac', 'target_temp_high')}}
 
 
