@@ -12,7 +12,7 @@
       above: 100
   action:
     - service: notify.tbot
-      data_tempalate:
+      data_template:
         title: Home Assistant
         message: |
           Speedtest Issue 
