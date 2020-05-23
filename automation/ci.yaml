@@ -43,7 +43,7 @@
       entity_id: sensor.akail_homeassistant_last_build_state
       state: passed
     - condition: template
-      value_template: {{ '/config/scripts' in trigger.event.data.folder }}
+      value_template: "{{ '/config/scripts' in trigger.event.data.folder }}"
   action:
     - service: notify.tbot
       data:
@@ -74,7 +74,7 @@
       entity_id: sensor.akail_homeassistant_last_build_state
       state: passed
     - condition: template
-      value_template: {{ '/config/automation' in trigger.event.data.folder }}
+      value_template: "{{ '/config/automation' in trigger.event.data.folder }}"
   action:
     - service: notify.tbot
       data_template:
