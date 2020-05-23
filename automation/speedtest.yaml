@@ -16,6 +16,6 @@
         title: Home Assistant
         message: |
           Speedtest Issue 
-          Ping {{sensor.speedtest_ping}}
-          Download  {{sensor.speedtest_download}}
-          Upload {{sensor.speedtest_upload}}
+          Ping {{states('sensor.speedtest_ping')}}
+          Download  {{states('sensor.speedtest_download')}}
+          Upload {{states('sensor.speedtest_upload')}}
