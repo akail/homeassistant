@@ -8,7 +8,7 @@
   condition:
     - condition: state
       entity_id: input_select.git_update_mode
-      state: 'Auto Reload'
+      state: 'Auto Restart'
   action:
     - service: hassio.addon_start
       data:
