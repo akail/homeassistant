@@ -1,0 +1,21 @@
+---
+- alias: "Speed Test Check"
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.speedtest_download
+      below: 50
+    - platform: numeric_state
+      entity_id: sensor.speedtest_upload
+      below: 4
+    - platform: numeric_state
+      entity_id: sensor.speedtest_ping
+      above: 100
+  action:
+    - service: notify.tbot
+      data_tempalate:
+        title: Home Assistant
+        message: |
+          Speedtest Issue 
+          Ping {{sensor.speedtest_ping}}
+          Download  {{sensor.speedtest_download}}
+          Upload {{sensor.speedtest_upload}}
