@@ -9,7 +9,6 @@ script:
   - "mkdir custom_components"
   - "mkdir -p scripts"
   - "mkdir -p automation"
-  - "chmod -R 777 /config"
   - "git clone https://github.com/twrecked/hass-aarlo.git"
   - "mv hass-aarlo/custom_components/aarlo custom_components/"
   - "hass --version"
