@@ -1,0 +1,4 @@
+folder_watcher:
+  - folder: /config/automation
+    patterns:
+      - '*.yaml'
