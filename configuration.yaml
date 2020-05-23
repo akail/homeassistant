@@ -2,7 +2,8 @@
 homeassistant:
   packages: !include_dir_named integrations/
   whitelist_external_dirs:
-    - /config
+    - !secret folder_automation
+    - !secret folder_scripts
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 #
