@@ -1,0 +1,21 @@
+---
+- alias: "Auto update automations"
+  trigger:
+    - platform: state
+      entity_id: sensor.akail_homeassistant_last_build_state
+      from: started
+      to: passed
+  condition:
+    - condition: state
+      entity_id: input_select.git_update_mode
+      state: 'True'
+  action:
+    - service: notify.tbot
+      data_template:
+        title: Home Assistant
+        message: Updating automations on passed build
+
+
+
+
+
