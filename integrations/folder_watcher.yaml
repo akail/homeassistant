@@ -1,7 +1,7 @@
 folder_watcher:
-  - folder: /config/automation
+  - folder: !secret folder_automation
     patterns:
       - '*.yaml'
-  - folder: /config/scripts
+  - folder: !secret folder_scripts
     patterns:
       - '*.yaml'

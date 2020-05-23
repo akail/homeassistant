@@ -7,8 +7,8 @@ install:
 script:
   - "mv secrets.yaml.sample secrets.yaml"
   - "mkdir custom_components"
-  - "mkdir -p /config/scripts"
-  - "mkdir -p /config/automation"
+  - "mkdir -p scripts"
+  - "mkdir -p automation"
   - "chmod -R 777 /config"
   - "git clone https://github.com/twrecked/hass-aarlo.git"
   - "mv hass-aarlo/custom_components/aarlo custom_components/"
