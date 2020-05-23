@@ -42,21 +42,42 @@
     - condition: state
       entity_id: sensor.akail_homeassistant_last_build_state
       state: passed
-    - condition: or
-      conditions:
-        - condition: template
-          value_template: "{{ '/config/scripts' in trigger.event.data.folder }}"
-        - condition: template
-          value_template: "{{ '/config/automation' in trigger.event.data.folder }}"
+    - condition: template
+      value_template: {{ '/config/scripts' in trigger.event.data.folder }}
+  action:
+    - service: notify.tbot
+      data:
+        title: Home Assistant
+        message: Updating scripts on passed build
+    - service: script.reload
+    
+- alias: "Update automations"
+  trigger:
+    - platform: event
+      event_type: folder_watcher
+      event_data:
+        event_type: modified
+    - platform: event
+      event_type: folder_watcher
+      event_data:
+        event_type: created
+    - platform: event
+      event_type: folder_watcher
+      event_data:
+        event_type: deleted
+    - platform: event
+      event_type: folder_watcher
+      event_data:
+        event_type: moved
+  condition:
+    - condition: state
+      entity_id: sensor.akail_homeassistant_last_build_state
+      state: passed
+    - condition: template
+      value_template: {{ '/config/automation' in trigger.event.data.folder }}
   action:
     - service: notify.tbot
       data_template:
         title: Home Assistant
-        message: >
-          {% if "/config/scripts" in trigger.event.data.folder %}
-            Updating scripts on passed build
-          {% elif "/config/automation" in trigger.event.data.folder %}
-            Updating automations on passed build
-          {% else %}
-            Unidentified folder found
-          {% endif %}
+        message: Updating automations on passed build
+    - service: automation.reload
