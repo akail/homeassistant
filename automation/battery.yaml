@@ -21,16 +21,16 @@
 
 - alias: Battery Alert
   trigger:
-    - platform: state
+    - platform: numeric_state
       entity_id: sensor.aarlo_battery_level_everett
       below: 25
-    - platform: state
+    - platform: numeric_state
       entity_id: sensor.downstairs_ac_battery_level
       below: 25
-    - platform: state
+    - platform: numeric_state
       entity_id: sensor.garage_door_detector_battery_level
       below: 25
-    - platform: state
+    - platform: numeric_state
       entity_id: sensor.tv_room_pir_motion_sensor_battery_level
       below: 25
   action:
