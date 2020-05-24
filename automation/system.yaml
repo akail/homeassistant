@@ -1,0 +1,17 @@
+---
+- alias: "Pi memory usage"
+  trigger:
+    - platform: state
+      entity_id: sensor.tv_room_pir_motion_sensor_battery_level
+      above: 80
+  action:
+    - service: notify.tbot
+      data:
+        title: Home Assistant
+        message: PI memory usage has exceeded 80%
+    - service: automation.turn_off
+      entity_id: automation.pi_memory_usage
+    - delay: '01:00:00'
+    - service: automation.turn_on
+      entity_id: automation.pi_memory_usage
+

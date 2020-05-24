@@ -1,0 +1,4 @@
+counter:
+  simplisafe_error_counter:
+    name: Simplisafe Errors
+    icon: mdi:shield-alert

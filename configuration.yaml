@@ -66,4 +66,5 @@ roku:
 
 rest_command:
   healthcheck:
-    url: 'health.kail.io/ping/a1ed66d4-55a4-4163-abf8-b08580976fe5'
+    url: 'https://health.kail.io/ping/a1ed66d4-55a4-4163-abf8-b08580976fe5'
+    verify_ssl: False

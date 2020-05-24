@@ -1,0 +1,42 @@
+---
+- alias: Blink Battery Alert
+  trigger:
+    - platform: state
+      entity_id: sensor.blink_back_patio_battery
+    - platform: state
+      entity_id: sensor.blink_driveway_battery
+    - platform: state
+      entity_id: sensor.blink_front_porch_battery
+    - platform: state
+      entity_id: sensor.blink_garage_battery
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: "{{trigger.entity_id}}"
+          state: ok
+  action:
+    - service: notify.tbot
+      data_template:
+        title: Home Assistant
+        message: "Check battery for {{trigger.entity_id}}"
+
+- alias: Battery Alert
+  trigger:
+    - platform: state
+      entity_id: sensor.aarlo_battery_level_everett
+      below: 25
+    - platform: state
+      entity_id: sensor.downstairs_ac_battery_level
+      below: 25
+    - platform: state
+      entity_id: sensor.garage_door_detector_battery_level
+      below: 25
+    - platform: state
+      entity_id: sensor.tv_room_pir_motion_sensor_battery_level
+      below: 25
+  action:
+    - service: notify.tbot
+      data_template:
+        title: Home Assistant
+        message: "Check battery for {{trigger.entity_id}}"

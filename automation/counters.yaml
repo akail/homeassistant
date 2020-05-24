@@ -1,0 +1,14 @@
+---
+- alias: Simplisafe Error Couting Auotmation
+  trigger:
+    platform: event
+    event_type: system_log_event
+    event_data:
+      level: ERROR
+  condition:
+    - condition: template
+      value_template: "{{ trigger.event.data.entity_id.startswith('light.') }}"
+  action:
+    service: counter.increment
+    data:
+      entity_id: counter.simplisafe_error_counter
