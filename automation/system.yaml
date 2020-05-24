@@ -1,7 +1,7 @@
 ---
 - alias: "Pi memory usage"
   trigger:
-    - platform: state
+    - platform: numeric_state
       entity_id: sensor.tv_room_pir_motion_sensor_battery_level
       above: 80
   action:
