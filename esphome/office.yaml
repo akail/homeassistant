@@ -28,6 +28,7 @@ ota:
 
 sensor:
   - platform: dht
+    model: AM2302
     pin: D7
     temperature:
       name: "Multisensor Temperature"
