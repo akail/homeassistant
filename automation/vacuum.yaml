@@ -4,13 +4,16 @@
     - platform: time
       at: '14:30:00'
   condition:
-    condition: and
-    conditions:
-      - condition: time
-        weekday:
-          - mon
-          - wed
-          - fri
+    - condition: time
+      weekday:
+        - mon
+        - wed
+        - fri
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id: input_select.presence
+          state: Extended Away
   action:
     - service: notify.tbot
       data:
