@@ -3,18 +3,16 @@
   trigger:
     - platform: state
       entity_id: sensor.blink_back_patio_battery
+      from: ok
     - platform: state
       entity_id: sensor.blink_driveway_battery
+      from: ok
     - platform: state
       entity_id: sensor.blink_front_porch_battery
+      from: ok
     - platform: state
       entity_id: sensor.blink_garage_battery
-  condition:
-    - condition: not
-      conditions:
-        - condition: state
-          entity_id: "{{trigger.entity_id}}"
-          state: ok
+      from: ok
   action:
     - service: notify.tbot
       data_template:
