@@ -34,5 +34,5 @@ git_update_mode:
   name: GIT Update Mode
   options:
     - Off
-    - Ask for Permission
     - Auto Restart
+    - Auto Reload
