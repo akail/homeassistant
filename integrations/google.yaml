@@ -1,0 +1,4 @@
+---
+google:
+  client_id: !secret thekails_calendar_client_id
+  client_secret: !secret thekails_calendar_client_secret
