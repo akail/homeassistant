@@ -1,0 +1,7 @@
+---
+- alias: Healthcheck
+  trigger:
+    - platform: time_platform
+      minutes: 30
+  action:
+    - service: shell_command.health_check

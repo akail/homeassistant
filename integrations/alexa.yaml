@@ -9,6 +9,8 @@ alexa:
         - light.everett_s_crib
         - light.everetts_color_light
         - light.office_lamp
+        - light.desk_led
+        - light.bedroom_lamp
         - light.tv_led_strip
         - light.everett_s_lamp
         - light.desk_lamp
