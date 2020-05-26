@@ -42,20 +42,6 @@
   trigger:
     - platform: event
       event_type: folder_watcher
-      event_data:
-        event_type: modified
-    - platform: event
-      event_type: folder_watcher
-      event_data:
-        event_type: created
-    - platform: event
-      event_type: folder_watcher
-      event_data:
-        event_type: deleted
-    - platform: event
-      event_type: folder_watcher
-      event_data:
-        event_type: moved
   condition:
     - condition: state
       entity_id: sensor.akail_homeassistant_last_build_state
@@ -76,20 +62,6 @@
   trigger:
     - platform: event
       event_type: folder_watcher
-      event_data:
-        event_type: modified
-    - platform: event
-      event_type: folder_watcher
-      event_data:
-        event_type: created
-    - platform: event
-      event_type: folder_watcher
-      event_data:
-        event_type: deleted
-    - platform: event
-      event_type: folder_watcher
-      event_data:
-        event_type: moved
   condition:
     - condition: state
       entity_id: sensor.akail_homeassistant_last_build_state
