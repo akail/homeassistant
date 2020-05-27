@@ -4,6 +4,7 @@ homeassistant:
   whitelist_external_dirs:
     - !secret folder_automation
     - !secret folder_scripts
+  customize: !include customize.yaml
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 #
