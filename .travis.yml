@@ -13,7 +13,7 @@ script:
   - "git clone https://github.com/twrecked/hass-aarlo.git"
   - "mv hass-aarlo/custom_components/aarlo custom_components/"
   - "git clone https://github.com/StyraHem/ShellyForHASS"
-  - "mv ShellyForHass/custom_components/shelly custom_components/"
+  - "mv ShellyForHASS/custom_components/shelly custom_components/"
   - "hass --version"
   - "hass -c . --script check_config | tee check.output"
   - '! less check.output | grep -q "Failed config"'
