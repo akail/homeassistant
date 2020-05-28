@@ -58,3 +58,8 @@
     - 'processor_load'
     - 'memory_use_percent'
     - 'disk_use_percent'
+
+- platform: steam
+  api_key: !secret steam_api_key
+  accounts:
+    - 76561198024717521
