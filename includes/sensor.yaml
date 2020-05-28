@@ -3,6 +3,12 @@
 
 - platform: version
 
+- platform: uptime
+
+- platform: season
+
+- platform: workday
+
 - platform: darksky
   api_key: !secret darksky_api_key
   monitored_conditions:
@@ -50,14 +56,14 @@
   repository:
     - homeassistant
 
-- platform: glances
-  host: 127.0.0.1
-  port: 61209
-  version: 3
-  resources:
-    - 'processor_load'
-    - 'memory_use_percent'
-    - 'disk_use_percent'
+#- platform: glances
+  #host: 127.0.0.1
+  #port: 61209
+  #version: 3
+  #resources:
+    #- 'processor_load'
+    #- 'memory_use_percent'
+    #- 'sensor_temp'
 
 - platform: steam_online
   api_key: !secret steam_api_key
