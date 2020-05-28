@@ -26,3 +26,4 @@
         {{states('sensor.tv_room_pir_motion_sensor_alarm_level') |int > 200 }}
 
 - platform: workday
+  country: US
