@@ -19,6 +19,9 @@
     - service: switch.turn_on
       data:
         entity_id: switch.front_porch
+    - service: switch.turn_on
+      data:
+        entity_id: switch.driveway_lights
 
 - alias: 'Lights off before bed'
   trigger:
@@ -31,6 +34,8 @@
       entity_id: light.dining_room_hutch
     - service: switch.turn_off
       entity_id: switch.front_porch
+    - service: switch.turn_off
+      entity_id: switch.driveway_lights
 
 # - alias: 'TV Room Motion Light'
 #   trigger:

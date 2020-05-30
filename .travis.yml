@@ -14,6 +14,10 @@ script:
   - "mv hass-aarlo/custom_components/aarlo custom_components/"
   - "git clone https://github.com/StyraHem/ShellyForHASS"
   - "mv ShellyForHASS/custom_components/shelly custom_components/"
+  - "git clone https://github.com/custom-components/sensor.rpi_power.git"
+  - "mv sensor.rpi_power/custom_components/rpi_power custom_components/"
+  - "git clone https://github.com/jcwillox/hass-auto-backup.git"
+  - "mv hass-auto-backup/custom_components/auto_backup custom_components/"
   - "hass --version"
   - "hass -c . --script check_config | tee check.output"
   - '! less check.output | grep -q "Failed config"'

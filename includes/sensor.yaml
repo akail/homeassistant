@@ -54,16 +54,18 @@
   repository:
     - homeassistant
 
-#- platform: glances
-  #host: 127.0.0.1
-  #port: 61209
-  #version: 3
-  #resources:
-    #- 'processor_load'
-    #- 'memory_use_percent'
-    #- 'sensor_temp'
-
 - platform: steam_online
   api_key: !secret steam_api_key
   accounts:
     - 76561198024717521
+
+
+# Tracking entity to entity
+- platform: waze_travel_time
+  name: "Maggie to home"
+  origin: device_tracker.maggie_s_iphone
+  destination: zone.home
+  region: 'US'
+
+- platform: rpi_power
+  text_state: true

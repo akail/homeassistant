@@ -1,0 +1,12 @@
+---
+- alias: "Notify of HACS Updates"
+  trigger:
+    - platform: state_numeric
+      entity_id: sensor.hacs
+      above: 0
+  action:
+    - service: notify.tbot
+      data_template:
+        title: Home Assistant
+        message: |
+          {{states('sensor.hacs')}} HACS Updates Pending

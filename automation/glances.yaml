@@ -1,0 +1,11 @@
+---
+# Glances is a memory hog, so lets restart it daily to
+# clear up some memory on the system
+- alias: "Restart Glances"
+  trigger:
+    - platform: time
+      at: '00:30:00'
+  action:
+    - service: hassio.addon_restart
+      data:
+        addon: glances

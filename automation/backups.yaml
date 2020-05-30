@@ -8,4 +8,6 @@
       weekday:
         - sat
   action:
-    - service: hassio.snapshot_full
+    - service: auto_backup.snapshot_full
+      data:
+        keep_days: 14

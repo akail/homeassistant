@@ -1,5 +1,5 @@
 ---
 nextcloud:
-  url: https://cloud.kail.io
+  url: http://cloud.kail.io
   username: !secret nextcloud_username
   password: !secret nextcloud_password

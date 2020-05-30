@@ -1,5 +1,15 @@
 ---
 alexa:
+  flash_briefings:
+    maggiehometime:
+      - title: How far is Maggie?
+        text: >
+          {%-if is_state('person.maggie_kail', 'Home') -%}
+            Maggie is already home
+          {%- else -%}
+            Maggie is {{(now()-states.device_tracker.maggie_s_iphone.last_updated).seconds/60}} minutes from home
+          {% endif %}
+
   smart_home:
     filter:
       include_entities:
@@ -18,6 +28,7 @@ alexa:
         - light.maggies_bedside_lamp
         - switch.andrews_tv_room_lamp
         - switch.everetts_fan_light
+        - switch.driveway_lights
         - switch.front_porch
         - switch.living_room_lamp
         - switch.test_tplink
@@ -97,4 +108,7 @@ alexa:
         display_categories: FAN
       light.everett_s_lamp:
         name: Everett's Lamp
+      switch.driveway_lights:
+        name: Driveway Lights
+        display_categories: LIGHT
 
