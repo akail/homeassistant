@@ -1,7 +1,7 @@
 ---
 - alias: "Notify of HACS Updates"
   trigger:
-    - platform: state_numeric
+    - platform: numeric_state
       entity_id: sensor.hacs
       above: 0
   action:
