@@ -1,5 +1,5 @@
 shell_command:
   turn_off_omv: 'ssh -o UserKnownHostsFile=/config/.ssh/known_hosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.236 -t sudo pm-suspend'
   shutdown_omv: 'ssh -o UserKnownHostsFile=/config/.ssh/known_hosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@192.168.1.236 -t sudo shutdown -H'
-  restart_router: 'ssh -o UserKnownHostsFile=/config/.ssh/known_hosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa hass@192.168.1.1 -t reboot now'
+  restart_router: 'ssh -o UserKnownHostsFile=/config/.ssh/known_hosts -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa hass@192.168.1.1 -t /sbin/reboot'
   health_check: 'curl --resolve health.kail.io:443:192.168.1.236 -k https://health.kail.io/ping/a1ed66d4-55a4-4163-abf8-b08580976fe5'
