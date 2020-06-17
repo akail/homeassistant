@@ -17,6 +17,7 @@
       option: "Daycare"
 
 - alias: "Mark baby as home"
+  trigger:
     - platform: state
       entity_id: person.andrew_kail
       to: "Daycare"
