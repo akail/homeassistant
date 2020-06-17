@@ -25,6 +25,7 @@ alexa:
         - switch.guest_mode
         - switch.living_room_lamp
         - switch.office_power_socket
+        - switch.sound_machine
         - switch.test_tplink
         - climate.upstairs_ac
         - climate.downstairs_ac
@@ -111,4 +112,6 @@ alexa:
         display_categories: LIGHT
       light.living_room_lamp:
         name: Living Room Table Lamp
+      switch.sound_machine:
+        name: Sound Machine
 

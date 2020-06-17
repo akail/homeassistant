@@ -1,0 +1,79 @@
+---
+- alias: "Mark baby at daycare"
+  trigger:
+    - platform: state
+      entity_id: person.andrew_kail
+      to: "Daycare"
+    - platform: state
+      entity_id: person.maggie_kail
+      to: "Daycare"
+  condition:
+    condition: state
+    entity_id: input_select.everett_status_dropdown
+    state: "Home"
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.everett_status_dropdown
+      option: "Daycare"
+
+- alias: "Mark baby as home"
+    - platform: state
+      entity_id: person.andrew_kail
+      to: "Daycare"
+    - platform: state
+      entity_id: person.maggie_kail
+      to: "Daycare"
+  condition:
+    condition: state
+    entity_id: input_select.everett_status_dropdown
+    state: "Daycare"
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.everett_status_dropdown
+      option: "Home"
+
+- alias: "Reset baby status"
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.everett_status_dropdown
+      option: "Home"
+
+- alias: "Baby room away mode"
+  trigger:
+    - platform: state
+      entity_id: input_select.everett_status_dropdown
+      from: "Home"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.sound_machine
+    - service: light.turn_off
+      entity_id: light.everetts_color_light
+    - service: light.turn_off
+      entity_id: light.everett_s_lamp
+    - service: switch.turn_off
+      entity_id: switch.everetts_fan_light
+    - service: light.turn_off
+      entity_id: light.everett_s_crib
+
+- alias: "Turn on night lights"
+  trigger:
+    - platform: state
+      entity_id: input_select.everett_status_dropdown
+      to: "Home"
+  condition:
+    condition: time
+    after: '12:00:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.sound_machine
+    - service: light.turn_on
+      entity_id: light.everetts_color_light
+    - service: light.turn_on
+      entity_id: light.everett_s_lamp
+    - service: switch.turn_off
+      entity_id: switch.everetts_fan_light
+    - service: light.turn_on
+      entity_id: light.everett_s_crib

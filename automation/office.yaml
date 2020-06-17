@@ -1,0 +1,38 @@
+---
+- alias: "Turn off office switch"
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.office_power_socket
+
+# Turn off the office switch when no one is home
+- alias: "Turn off office switch when home away"
+  trigger:
+    - platform: state
+      entity_id: input_select.presence
+      from: "Home"
+      to: "Away"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.office_power_socket
+
+- alias: "Turn on office switch"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multisensor_motion
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: switch.office_power_socket
+      state: 'off'
+    - condition: state
+      entity_id: input_select.presence
+      state: 'Home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.office_power_socket
+
+
