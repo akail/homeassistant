@@ -1,10 +1,18 @@
 ---
 # This will turn on the light between 5 and 1 hour after sunrise
 # When the bedroom door has been opened
-#- alias: 'Atrium light on in morning'
+- alias: 'Atrium light on in morning'
   trigger:
     - platform: time
-      at: '05:00:00'
+      at: '06:00:00'
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_door
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: sun
+      after: sunrise
+      after_offset: '01:00:00'
   action:
     - service: light.turn_on
       entity_id: light.atrium
@@ -18,6 +26,7 @@
     - service: light.turn_off
       entity_id: light.atrium
 
+- alias: 'Atrium night light'
   trigger:
     platform: state
     entity_id: binary_sensor.master_bedroom_door
