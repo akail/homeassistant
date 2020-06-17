@@ -18,6 +18,12 @@ maggie_status_dropdown:
     - Extended Away
   initial: Home
 
+everett_status_dropdown:
+  name: Everett
+  options:
+    - Home
+    - Daycare
+
 presence:
   name: Presence
   options:
