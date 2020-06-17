@@ -13,8 +13,9 @@
     state: "Home"
   action:
     - service: input_select.select_option
-      entity_id: input_select.everett_status_dropdown
-      option: "Daycare"
+      data:
+        entity_id: input_select.everett_status_dropdown
+        option: "Daycare"
 
 - alias: "Mark baby as home"
   trigger:
@@ -30,8 +31,9 @@
     state: "Daycare"
   action:
     - service: input_select.select_option
-      entity_id: input_select.everett_status_dropdown
-      option: "Home"
+      data:
+        entity_id: input_select.everett_status_dropdown
+        option: "Home"
 
 - alias: "Reset baby status"
   trigger:
@@ -39,8 +41,9 @@
       at: '00:00:00'
   action:
     - service: input_select.select_option
-      entity_id: input_select.everett_status_dropdown
-      option: "Home"
+      data:
+        entity_id: input_select.everett_status_dropdown
+        option: "Home"
 
 - alias: "Baby room away mode"
   trigger:
