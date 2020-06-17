@@ -14,6 +14,9 @@
         - condition: state
           entity_id: input_select.presence
           state: Extended Away
+    - condition: state
+      entity_id: binary_sensor.master_bedroom_door
+      state: off
   action:
     - service: notify.tbot
       data:
