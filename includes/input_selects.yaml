@@ -8,6 +8,7 @@ andrew_status_dropdown:
     - Away
     - Extended Away
   initial: Home
+
 maggie_status_dropdown:
   name: Maggie
   options:
@@ -30,6 +31,7 @@ presence:
     - Home
     - Away
     - Extended Away
+
 guest_mode:
   name: Guests
   options:
@@ -42,3 +44,9 @@ git_update_mode:
     - Off
     - Auto Restart
     - Auto Reload
+
+clean_bumper:
+  name: Clean Bumper
+  options:
+    - Yes
+    - No

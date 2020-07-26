@@ -1,6 +1,0 @@
----
-nextcloud:
-  url: https://cloud.kail.io
-  username: !secret nextcloud_username
-  password: !secret nextcloud_password
-  scan_interval: 300

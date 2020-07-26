@@ -1,0 +1,17 @@
+---
+- platform: template
+  switches:
+    clean_bumper:
+      friendly_name: Clean Bumper
+      entity_id: input_select.clean_bumper
+      value_template: "{{ is_state('input_select.clean_bumper', 'True')}}"
+      turn_on:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.clean_bumper
+          option: 'True'
+      turn_off:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.clean_bumper
+          option: 'False'

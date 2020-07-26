@@ -7,23 +7,6 @@
 
 - platform: season
 
-- platform: darksky
-  api_key: !secret darksky_api_key
-  monitored_conditions:
-    - temperature
-    - precip_accumulation
-    - precip_probability
-    - precip_intensity
-    - alerts
-    - humidity
-    - cloud_cover
-
-- platform: statistics
-  entity_id: sensor.dark_sky_precip_intensity
-  precision: 3
-  max_age:
-    days: 7
-
 - platform: template
   sensors:
     andrew_status:

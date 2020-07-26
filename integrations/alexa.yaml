@@ -18,6 +18,7 @@ alexa:
         - light.maggies_bedside_lamp
         - light.living_room_lamp
         - switch.andrews_tv_room_lamp
+        - switch.clean_bumper
         - switch.driveway_lights
         - switch.everetts_fan_light
         - switch.front_porch
@@ -86,6 +87,8 @@ alexa:
         display_categories: LIGHT
       switch.guest_mode:
         name: Guest Mode
+      switch.clean_bumper:
+        name: Clean Bumper
       switch.living_room_lamp:
         name: Living Room Switch
       switch.test_tplink:
