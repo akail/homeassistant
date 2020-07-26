@@ -6,6 +6,8 @@
   condition:
     - condition: template
       value_template: "{{ states('media_player.tcl_tv') != 'standby'}}"
+    - condition: template
+      value_template: "{{ states('media_player.tcl_tv') != 'unavailable'}}"
   action:
     - service: light.turn_on
       data_template:
