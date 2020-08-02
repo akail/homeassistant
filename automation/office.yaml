@@ -31,8 +31,31 @@
     - condition: state
       entity_id: input_select.presence
       state: 'Home'
+    - condition: time
+      after: '06:00:00'
   action:
     - service: switch.turn_on
       entity_id: switch.office_power_socket
 
-
+- alias: "Office lights on"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.multisensor_motion
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_select.guest_mode
+      state: "False"
+    - condition: state
+      entity_id: light.desk_lamp
+      state: 'off'
+    - condition: time
+      after: '06:00:00'
+    - condition: time
+      before: '11:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.desk_lamp
+    - service: light.turn_on
+      entity_id: light.desk_led
