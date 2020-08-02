@@ -44,9 +44,3 @@ git_update_mode:
     - Off
     - Auto Restart
     - Auto Reload
-
-clean_bumper:
-  name: Clean Bumper
-  options:
-    - Yes
-    - No

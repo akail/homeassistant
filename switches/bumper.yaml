@@ -3,15 +3,13 @@
   switches:
     clean_bumper:
       friendly_name: Clean Bumper
-      entity_id: input_select.clean_bumper
-      value_template: "{{ is_state('input_select.clean_bumper', 'True')}}"
+      entity_id: input_boolean.vacuum_ready_to_clean
+      value_template: "{{ is_state('input_boolean.vacuum_ready_to_clean', 'on')}}"
       turn_on:
-        service: input_select.select_option
+        service: input_boolean.turn_on
         data:
-          entity_id: input_select.clean_bumper
-          option: 'True'
+          entity_id: input_boolean.vacuum_ready_to_clean
       turn_off:
-        service: input_select.select_option
+        service: input_boolean.turn_off
         data:
-          entity_id: input_select.clean_bumper
-          option: 'False'
+          entity_id: input_boolean.vacuum_ready_to_clean
