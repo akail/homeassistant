@@ -18,8 +18,8 @@
       entity_id: binary_sensor.master_bedroom_door
       state: 'off'
     - condition: state
-      entity_id: input_select.clean_bumper
-      state: 'False'
+      entity_id: input_boolean.vacuum_ready_to_clean
+      state: 'off'
   action:
     - service: notify.tbot
       data:
@@ -30,10 +30,8 @@
     - delay: '02:00:00'
     - service: vacuum.return_to_base
       entity_id: vacuum.bumper
-    - service: input_select.select_options
-        data:
-          entity_id: input_select.clean_bumper
-          option: 'True'
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.vacuum_ready_to_clean
 
 - alias: "Bumper not cleaned"
   trigger:
@@ -41,8 +39,8 @@
       at: '14:25:00'
   condition:
     - condition: state
-      entity_id: input_select.clean_bumper
-      state: 'True'
+      entity_id: input_boolean.vacuum_ready_to_clean
+      state: 'on'
   action:
     - service: notify.tbot
       data:
