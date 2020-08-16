@@ -50,8 +50,6 @@
   destination: zone.home
   region: 'US'
 
-- platform: rpi_power
-  text_state: true
 
 - platform: time_date
   display_options:
