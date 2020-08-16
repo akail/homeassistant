@@ -1,5 +1,15 @@
 ---
 alexa:
+  flash_briefings:
+    password: LX#29ndrwk
+    whereismaggie:
+      - title: "Where is Maggie?"
+        text: >
+          {%- if is_state('person.maggie_kail', 'Home') %}
+            Maggie is home
+          {%- else %}
+            Maggie is {{states('sensor.maggie_to_home')|float - states.device_tracker.maggie_s_iphone_2.last_changed.minute}}
+          {%- endif %}
   smart_home:
     filter:
       include_entities:
