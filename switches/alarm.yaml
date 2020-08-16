@@ -1,0 +1,15 @@
+---
+- platform: template
+  switches:
+    clean_bumper:
+      friendly_name: Morning Alarm
+      entity_id: input_boolean.morning_alarm
+      value_template: "{{ is_state('input_boolean.morning_alarm', 'on')}}"
+      turn_on:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.morning_alarm
+      turn_off:
+        service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.morning_alarm

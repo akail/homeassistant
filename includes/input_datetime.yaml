@@ -1,0 +1,5 @@
+---
+morning_alarm_time:
+  name: Morning Alarm
+  has_time: true
+  has_date: false

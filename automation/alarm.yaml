@@ -1,0 +1,21 @@
+---
+- alias: "Morning Alarm"
+  trigger:
+    platform: template
+    value_template: "{{ states('sensor.time') == (state_attr('input_datetime.morning_alarm_time', 'timestamp') | int | timestamp_custom('%H:%M', False)) }}"
+  condition:
+    - condition: state
+      entity_id: input_select.presence
+      state: 'Home'
+  action:
+    - service: light.turn_on
+      entity_id: light.master_bedroom_lights
+      brightness: 10
+    - delay: '00:05:00'
+    - service: light.turn_on
+      entity_id: light.master_bedroom_lights
+      brightness: 20
+    - delay: '00:05:00'
+    - service: light.turn_on
+      entity_id: light.master_bedroom_lights
+      brightness: 30

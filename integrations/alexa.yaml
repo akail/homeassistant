@@ -28,6 +28,7 @@ alexa:
         - switch.office_power_socket
         - switch.sound_machine
         - switch.test_tplink
+        - switch.morning_alarm
         - climate.upstairs_ac
         - climate.downstairs_ac
         - fan.everetts_fan
@@ -117,4 +118,6 @@ alexa:
         name: Living Room Table Lamp
       switch.sound_machine:
         name: Sound Machine
+      switch.morning_alarm:
+        name: Morning Alarm
 

@@ -8,3 +8,8 @@ vacuum_ready_to_clean:
   name: Vacuum is ready to be cleaned
   initial: off
   icon: mdi:robot-vacuum
+
+morning_alarm:
+  name: Morning alarm
+  initial: on
+  icon: mdi:alarm
