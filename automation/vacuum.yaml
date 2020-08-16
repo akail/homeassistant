@@ -41,6 +41,11 @@
     - condition: state
       entity_id: input_boolean.vacuum_ready_to_clean
       state: 'on'
+    - condition: time
+      weekday:
+        - mon
+        - wed
+        - fri
   action:
     - service: notify.tbot
       data:
@@ -55,6 +60,11 @@
     - condition: state
       entity_id: binary_sensor.master_bedroom_door
       state: 'on'
+    - condition: time
+      weekday:
+        - mon
+        - wed
+        - fri
   action:
     - service: notify.tbot
       data:
