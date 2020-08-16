@@ -44,7 +44,7 @@
 - alias: "TV Room Lights On"
   trigger:
     - platform: state
-      entity_id: binary_sensor.tv_room_motion
+      entity_id: binary_sensor.multisensor_motion_2
       to: "on"
   condition:
     - condition: template
@@ -62,7 +62,7 @@
 - alias: "TV Room Lights Off"
   trigger:
     - platform: state
-      entity_id: binary_sensor.tv_room_motion
+      entity_id: binary_sensor.multisensor_motion_2
       to: "off"
       for:
         minutes: 5
