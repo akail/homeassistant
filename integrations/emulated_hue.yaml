@@ -1,0 +1,10 @@
+---
+emulated_hue:
+  host_ip: 192.168.1.100
+  listen_port: 80
+  expose_by_default: false
+  entities:
+    switch.andrews_tv_room_lamp:
+      name: "Andrew's TV Room Lamp"
+    switch.test_tplink:
+      name: "Maggies TV Room Lamp"
