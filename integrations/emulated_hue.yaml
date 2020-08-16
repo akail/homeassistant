@@ -1,10 +1,18 @@
 ---
 emulated_hue:
   host_ip: 192.168.1.100
-  listen_port: 80
-  expose_by_default: false
-  entities:
-    switch.andrews_tv_room_lamp:
-      name: "Andrew's TV Room Lamp"
-    switch.test_tplink:
-      name: "Maggies TV Room Lamp"
+  listen_port: 8300
+  advertise_ip: 192.168.1.100
+  advertise_port: 8300
+  upnp_bind_multicast: true
+  expose_by_default: true
+  exposed_domains:
+    - switch
+    - light
+  #entities:
+    #switch.andrews_tv_room_lamp:
+      #name: "Andrew's TV Room Lamp"
+      #hidden: false
+    #switch.test_tplink:
+      #name: "Maggies TV Room Lamp"
+      #hidden: false
