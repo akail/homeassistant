@@ -27,3 +27,5 @@
 
 - platform: workday
   country: US
+
+- platform: rpi_power
