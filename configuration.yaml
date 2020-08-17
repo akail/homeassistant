@@ -41,6 +41,7 @@ binary_sensor: !include includes/binary_sensor.yaml
 switch: !include_dir_merge_list switches/
 input_select: !include includes/input_selects.yaml
 input_boolean: !include includes/input_boolean.yaml
+input_datetime: !include includes/input_datetime.yaml
 camera: !include includes/cameras.yaml
 
 light: !include includes/lights.yaml
