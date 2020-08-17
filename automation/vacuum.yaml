@@ -36,7 +36,7 @@
 - alias: "Bumper not cleaned"
   trigger:
     - platform: time
-      at: '14:25:00'
+      at: '14:20:00'
   condition:
     - condition: state
       entity_id: input_boolean.vacuum_ready_to_clean
@@ -55,7 +55,7 @@
 - alias: "Bedroom door open"
   trigger:
     - platform: time
-      at: '14:25:00'
+      at: '14:20:00'
   condition:
     - condition: state
       entity_id: binary_sensor.master_bedroom_door
