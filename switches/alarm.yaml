@@ -1,7 +1,7 @@
 ---
 - platform: template
   switches:
-    clean_bumper:
+    morning_alarm:
       friendly_name: Morning Alarm
       entity_id: input_boolean.morning_alarm
       value_template: "{{ is_state('input_boolean.morning_alarm', 'on')}}"

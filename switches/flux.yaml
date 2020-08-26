@@ -1,0 +1,13 @@
+- platform: flux
+  lights: 
+    - light.
+    - light.
+    - light.
+  name: Bedroom Flux
+  start_time: '17:00'
+  stop_time: '22:00'
+  start_colortemp: 4000
+  stop_colortemp: 3000
+  brightness: 100
+  transition: 30
+  interval: 60
