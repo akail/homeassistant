@@ -1,0 +1,7 @@
+---
+panel_iframe:
+  github:
+    title: "Github Issues"
+    url: 'https://github.com/akail/homeassistant/issues'
+    icon: mdi:github
+    require_admin: True
