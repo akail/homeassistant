@@ -4,9 +4,11 @@
     - platform: time
       at: '20:00:00'
     - platform: time
-      at: '22:00:00'
-    - platform: time
       at: '07:00:00'
+    - platform: time
+      at: '02:00:00'
+    - platform: time
+      at: '17:00:00'
     - platform: state
       entity_id: input_select.presence
     - platform: state
@@ -16,65 +18,109 @@
       data_template:
         entity_id: climate.downstairs_ac
         temperature: >
-          {%- if now().hour >= 7 and now().hour < 20 %}
+
+          {%- if now().hour >= 2 and now().hour < 7 %}
+            {%- if is_state('input_select.presence', 'Home') %}
+              72
+            {%- elif is_state('input_select.presence', 'Away') %}
+              75
+            {%- else %}
+              78
+              {%- endif %}
+
+          {%- elif now().hour >= 7 and now().hour < 17 %}
+            {%- if is_state('input_select.presence', 'Home') %}
+              75
+            {%- elif is_state('input_select.presence', 'Away') %}
+              76
+            {%- else %}
+              78
+            {%- endif %}
+
+          {%- elif now().hour >= 17 and now().hour < 20 %}
             {%- if is_state('input_select.presence', 'Home') %}
               73
             {%- elif is_state('input_select.presence', 'Away') %}
               75
             {%- else %}
-              77
+              78
             {%- endif %}
-          {%- else %}
+
+          {%- else %} # between 8 and 2
             {%- if is_state('input_select.presence', 'Home') %}
               71
             {%- elif is_state('input_select.presence', 'Away') %}
-              73
+              75
             {%- else %}
               78
             {%- endif %}
           {%- endif %}
+
+
     - service: climate.set_temperature
       data_template:
         entity_id: climate.upstairs_ac
         target_temp_high: >
-          {%- if now().hour >= 7 and now().hour < 22 %}
+          {%- if now().hour >= 2 and now().hour < 7 %}
             {%- if is_state('input_select.guest_mode', 'True') %}
-            74
+              73
             {%- else %}
               {%- if is_state('input_select.presence', 'Home') %}
-              73
+                73
               {%- elif is_state('input_select.presence', 'Away') %}
-              75
+                75
               {%- else %}
-              77
+                78
               {%- endif %}
             {%- endif %}
 
-          {%- else %}
+          {%- elif now().hour >= 7 and now().hour < 17 %}
             {%- if is_state('input_select.guest_mode', 'True') %}
-            72
+              74
             {%- else %}
-            74
+              {%- if is_state('input_select.presence', 'Home') %}
+                75
+              {%- elif is_state('input_select.presence', 'Away') %}
+                77
+              {%- else %}
+                78
+              {%- endif %}
+            {%- endif %}
+
+          {%- elif now().hour >= 17 and now().hour < 20 %}
+            {%- if is_state('input_select.guest_mode', 'True') %}
+              73
+            {%- else %}
+              {%- if is_state('input_select.presence', 'Home') %}
+                73
+              {%- elif is_state('input_select.presence', 'Away') %}
+                75
+              {%- else %}
+                78
+              {%- endif %}
+            {%- endif %}
+
+          {%- else %} # between 8 and 2
+            {%- if is_state('input_select.guest_mode', 'True') %}
+              73
+            {%- else %}
+              {%- if is_state('input_select.presence', 'Home') %}
+                73
+              {%- elif is_state('input_select.presence', 'Away') %}
+                75
+              {%- else %}
+                78
+              {%- endif %}
             {%- endif %}
           {%- endif %}
-
         target_temp_low: >
-          {%- if now().hour >= 7 and now().hour < 22 %}
-            {%- if is_state('input_select.guest_mode', 'True') %}
-            67
-            {%- else %}
-              {%- if is_state('input_select.presence', 'Home') %}
-                68
-              {%- elif is_state('input_select.presence', 'Away') %}
-                66
-              {%- else %}
-                64
-              {%- endif %}
-            {%- endif %}
-
+          {%- if is_state('input_select.guest_mode', 'True') %}
+            69
           {%- else %}
-            {%- if is_state('input_select.guest_mode', 'True') %}
-              69
+            {%- if is_state('input_select.presence', 'Home') %}
+              68
+            {%- elif is_state('input_select.presence', 'Away') %}
+              66
             {%- else %}
               64
             {%- endif %}
@@ -87,51 +133,3 @@
         message: |
             Dowstairs set to {{state_attr('climate.downstairs_ac', 'temperature')}}
             Upstairs set to {{state_attr('climate.upstairs_ac', 'target_temp_low')}}/{{state_attr('climate.upstairs_ac', 'target_temp_high')}}
-
-
-#    - service: climate.set_temperature
-#      data_template:
-#        entity_id: climate.upstairs_ac
-#        target_temp_high: >
-#          {%- if now().hour >= 7 and now().hour < 22 %}
-#            {%- if is_state('input_select.guest_mode', 'True') %}
-#            74
-#            {%- else %}
-#              {%- if is_state('input_select.presence', 'Home') %}
-#              74
-#              {%- elif is_state('input_select.presence', 'Away') %}
-#              76
-#              {%- else %}
-#              78
-#              {%- endif %}
-#            {%- endif %}
-#
-#          {%- else %}
-#            {%- if is_state('input_select.guest_mode', 'True') %}
-#            72
-#            {%- else %}
-#            78
-#            {%- endif %}
-#          {%- endif %}
-#
-#        target_temp_low: >
-#          {%- if now().hour >= 7 and now().hour < 22 %}
-#            {%- if is_state('input_select.guest_mode', 'True') %}
-#            67
-#            {%- else %}
-#              {%- if is_state('input_select.presence', 'Home') %}
-#                68
-#              {%- elif is_state('input_select.presence', 'Away') %}
-#                66
-#              {%- else %}
-#                64
-#              {%- endif %}
-#            {%- endif %}
-#
-#          {%- else %}
-#            {%- if is_state('input_select.guest_mode', 'True') %}
-#              69
-#            {%- else %}
-#              64
-#            {%- endif %}
-#          {%- endif %}
