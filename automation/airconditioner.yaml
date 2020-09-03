@@ -46,7 +46,7 @@
               78
             {%- endif %}
 
-          {%- else %} # between 8 and 2
+          {%- else %}
             {%- if is_state('input_select.presence', 'Home') %}
               71
             {%- elif is_state('input_select.presence', 'Away') %}
@@ -100,7 +100,7 @@
               {%- endif %}
             {%- endif %}
 
-          {%- else %} # between 8 and 2
+          {%- else %}
             {%- if is_state('input_select.guest_mode', 'True') %}
               73
             {%- else %}
