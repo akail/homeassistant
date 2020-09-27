@@ -1,6 +1,4 @@
 ---
-- platform: yr
-
 - platform: version
 
 - platform: uptime
@@ -54,3 +52,6 @@
 - platform: time_date
   display_options:
     - 'time'
+
+- platform: statistics
+  entity_id: sensor.myups_load
