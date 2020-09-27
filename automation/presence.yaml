@@ -2,24 +2,24 @@
 - alias: Mark person as just arrived
   trigger:
     - platform: state
-      entity_id: device_tracker.andrew_phone
+      entity_id: person.andrew_kail
       from: 'not_home'
       to: 'home'
     - platform: state
-      entity_id: device_tracker.maggies_iphone
+      entity_id: person.maggie_kail
       from: 'not_home'
       to: 'home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.andrew_phone' %}
+          {% if trigger.entity_id == 'person.andrew_kail' %}
             input_select.andrew_status_dropdown
           {% else %}
             input_select.maggie_status_dropdown
           {% endif %}
         option: >
-          {% if trigger.entity_id == 'device_tracker.andrew_phone' %}
+          {% if trigger.entity_id == 'person.andrew_kail' %}
             {% if states.input_select.andrew_status_dropdown.state == 'Just Left' %}
               Home
             {% else %}
@@ -68,18 +68,18 @@
 - alias: Mark person as just left
   trigger:
     - platform: state
-      entity_id: device_tracker.andrew_phone
+      entity_id: person.andrew_kail
       from: 'home'
       to: 'not_home'
     - platform: state
-      entity_id: device_tracker.maggies_iphone
+      entity_id: person.maggie_kail
       from: 'home'
       to: 'not_home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.andrew_phone' %}
+          {% if trigger.entity_id == 'person.andrew_kail' %}
             input_select.andrew_status_dropdown
           {% else %}
             input_select.maggie_status_dropdown
@@ -142,7 +142,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.maggies_iphone
+        entity_id: person.maggie_kail
         state: 'not_home'
   action:
     - service: input_select.select_option
@@ -159,7 +159,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: device_tracker.andrew_phone
+        entity_id: person.andrew_kail
         state: 'not_home'
   action:
     - service: input_select.select_option
