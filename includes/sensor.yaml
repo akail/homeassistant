@@ -44,7 +44,7 @@
 # Tracking entity to entity
 - platform: waze_travel_time
   name: "Maggie to home"
-  origin: device_tracker.maggie_s_iphone
+  origin: device_tracker.maggie_s_iphone_3
   destination: zone.home
   region: 'US'
 
