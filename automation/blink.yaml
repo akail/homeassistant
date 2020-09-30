@@ -6,16 +6,16 @@
   action:
     - service: blink.trigger_camera
       data:
-        name: camera.blink_back_patio
+        entity_id: camera.blink_back_patio
     - delay: '00:04:00'
     - service: blink.trigger_camera
       data:
-        name: camera.blink_driveway
+        entity_id: camera.blink_driveway
     - delay: '00:04:00'
     - service: blink.trigger_camera
       data:
-        name: camera.blink_front_porch
+        entity_id: camera.blink_front_porch
     - delay: '00:04:00'
     - service: blink.trigger_camera
       data:
-        name: camera.blink_garage
+        entity_id: camera.blink_garage
