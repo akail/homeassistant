@@ -5,9 +5,10 @@ influxdb:
   password: !secret influx_db_password
   database: homeassistant
   include:
+    domains:
+      - climate
+      - person
     entities:
-      - climate.upstairs_ac
-      - climate.downstairs_ac
       - sensor.aarlo_air_quality_everett
       - sensor.aarlo_battery_level_everett
       - sensor.aarlo_humidity_everett
@@ -29,6 +30,9 @@ influxdb:
       - sensor.multisensor_brightness
       - sensor.multisensor_humidity
       - sensor.multisensor_temperature
+      - sensor.multisensor_brightness_2
+      - sensor.multisensor_humidity_2
+      - sensor.multisensor_temperature_2
       - sensor.speedtest_download
       - sensor.speedtest_ping
       - sensor.speedtest_upload
