@@ -6,6 +6,8 @@ influxdb:
   database: homeassistant
   include:
     entities:
+      - climate.upstairs_ac
+      - climate.downstairs_ac
       - sensor.aarlo_air_quality_everett
       - sensor.aarlo_battery_level_everett
       - sensor.aarlo_humidity_everett
