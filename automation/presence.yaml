@@ -3,11 +3,9 @@
   trigger:
     - platform: state
       entity_id: person.andrew_kail
-      from: 'not_home'
       to: 'home'
     - platform: state
       entity_id: person.maggie_kail
-      from: 'not_home'
       to: 'home'
   action:
     - service: input_select.select_option
@@ -70,11 +68,9 @@
     - platform: state
       entity_id: person.andrew_kail
       from: 'home'
-      to: 'not_home'
     - platform: state
       entity_id: person.maggie_kail
       from: 'home'
-      to: 'not_home'
   action:
     - service: input_select.select_option
       data_template:
