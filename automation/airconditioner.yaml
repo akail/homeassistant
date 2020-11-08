@@ -17,7 +17,7 @@
     - service: climate.set_temperature
       data_template:
         entity_id: climate.downstairs_ac
-        temperature: >
+        target_temp_high: >
 
           {%- if now().hour >= 2 and now().hour < 7 %}
             {%- if is_state('input_select.presence', 'Home') %}
@@ -55,6 +55,15 @@
               78
             {%- endif %}
           {%- endif %}
+        target_temp_low: >
+          {%- if is_state('input_select.presence', 'Home') %}
+            68
+          {%- elif is_state('input_select.presence', 'Away') %}
+            66
+          {%- else %}
+            64
+          {%- endif %}
+
 
 
     - service: climate.set_temperature
