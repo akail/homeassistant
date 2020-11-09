@@ -88,9 +88,9 @@
               74
             {%- else %}
               {%- if is_state('input_select.presence', 'Home') %}
-                75
+                73
               {%- elif is_state('input_select.presence', 'Away') %}
-                77
+                75
               {%- else %}
                 78
               {%- endif %}
@@ -140,5 +140,5 @@
       data_template:
         title: Home Assistant
         message: |
-            Dowstairs set to {{state_attr('climate.downstairs_ac', 'temperature')}}
+            Downstairs set to {{state_attr('climate.downstairs_ac', 'target_temp_low')}}/{{state_attr('climate.downstairs_ac', 'target_temp_high')}}
             Upstairs set to {{state_attr('climate.upstairs_ac', 'target_temp_low')}}/{{state_attr('climate.upstairs_ac', 'target_temp_high')}}
