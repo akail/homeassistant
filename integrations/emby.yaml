@@ -1,0 +1,7 @@
+---
+media_player:
+  - platform: emby
+    host: media.kail.io
+    port: 443
+    ssl: true
+    api_key: !secret jellyfin_api_key
