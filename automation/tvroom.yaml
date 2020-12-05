@@ -52,12 +52,9 @@
     - condition: sun
       after: sunset
   action:
-    - service: switch.turn_on
+    - service: light.turn_on
       data:
-        entity_id: switch.test_tplink
-    - service: switch.turn_on
-      data:
-        entity_id: switch.andrews_tv_room_lamp
+        entity_id: light.tv_room_lights
 
 - alias: "TV Room Lights Off"
   trigger:
@@ -70,11 +67,8 @@
     - condition: template
       value_template: "{{ states('media_player.tcl_tv') == 'standby'}}"
   action:
-    - service: switch.turn_off
+    - service: light.turn_off
       data:
-        entity_id: switch.test_tplink
-    - service: switch.turn_off
-      data:
-        entity_id: switch.andrews_tv_room_lamp
+        entity_id: light.tv_room_lights
 
 

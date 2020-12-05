@@ -3,8 +3,8 @@ tv_room:
   name: TV Room
   entities:
     - light.tv_led_strip
-    - switch.andrews_tv_room_lamp
-    - switch.test_tplink
+    - light.andrews_tv_room_light
+    - light.maggies_tv_room_light
 everetts_room:
   name: Everett's Room
   entities:
@@ -13,3 +13,4 @@ everetts_room:
     - switch.everetts_fan_light
     - light.everett_s_lamp
     - fan.everetts_fan
+

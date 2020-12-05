@@ -16,3 +16,9 @@
     - light.andrew_bedside_lamp
     - light.maggies_bedside_lamp
     - light.bedroom_lamp
+
+- platform: group
+  name: TV Room Lights
+  entities:
+    - light.andrews_tv_room_light
+    - light.maggies_tv_room_light
