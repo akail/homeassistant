@@ -27,7 +27,8 @@ alexa:
         - light.andrew_bedside_lamp
         - light.maggies_bedside_lamp
         - light.living_room_lamp
-        - switch.andrews_tv_room_lamp
+        - light.andrews_tv_room_light
+        - light.maggies_tv_room_light
         - switch.clean_bumper
         - switch.driveway_lights
         - switch.everetts_fan_light
@@ -37,7 +38,6 @@ alexa:
         - switch.living_room_lamp
         - switch.office_power_socket
         - switch.sound_machine
-        - switch.test_tplink
         - switch.morning_alarm
         - climate.upstairs_ac
         - climate.downstairs_ac
@@ -85,9 +85,11 @@ alexa:
         name: Desk Lamp
       light.andrew_bedside_lamp:
         name: Andrew's Bedside Lamp
+      light.maggies_tv_room_light:
+        name: Maggies TV Room Lamp
       light.maggies_bedside_lamp:
         name: Maggie Bedside Lamp
-      switch.andrews_tv_room_lamp:
+      light.andrews_tv_room_light:
         name: Andrew TV Room Lamp
         display_categories: LIGHT
       switch.everetts_fan_light:
@@ -102,9 +104,6 @@ alexa:
         name: Clean Bumper
       switch.living_room_lamp:
         name: Living Room Switch
-      switch.test_tplink:
-        name: Maggies TV Room Lamp
-        display_categories: LIGHT
       climate.upstairs_ac:
         name: Upstairs AC
         display_categories: THERMOSTAT
