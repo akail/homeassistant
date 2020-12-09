@@ -39,6 +39,8 @@ alexa:
         - switch.office_power_socket
         - switch.sound_machine
         - switch.morning_alarm
+        - switch.test_tplink
+        - switch.everett_switch_right
         - climate.upstairs_ac
         - climate.downstairs_ac
         - fan.everetts_fan
@@ -129,4 +131,8 @@ alexa:
         name: Sound Machine
       switch.morning_alarm:
         name: Morning Alarm
+      switch.test_tplink:
+        name: Elliptical
+      switch.everett_switch_right:
+        name: Everett's night light
 
