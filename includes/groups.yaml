@@ -2,15 +2,14 @@
 tv_room:
   name: TV Room
   entities:
-    - light.tv_led_strip
     - light.andrews_tv_room_light
     - light.maggies_tv_room_light
 everetts_room:
-  name: Everett's Room
+  name: Everett's Night Mode
   entities:
     - light.everett_s_crib
     - light.everetts_color_light
-    - switch.everetts_fan_light
     - light.everett_s_lamp
-    - fan.everetts_fan
+    - switch.sound_machine
+    - switch.everett_switch_right
 
