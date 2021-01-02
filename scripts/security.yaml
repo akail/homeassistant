@@ -52,7 +52,8 @@ blink_home:
   sequence:
     - service: camera.disable_motion_detection
       data:
-        entity_id: camera.blink_garage
+        entity_id: camera.blink_driveway
+    - delay: '00:01:00'
     - service: camera.disable_motion_detection
       data:
         entity_id: camera.blink_back_patio
@@ -62,7 +63,8 @@ blink_away:
   sequence:
     - service: camera.enable_motion_detection
       data:
-        entity_id: camera.blink_garage
-    - service: camera.disable_motion_detection
+        entity_id: camera.blink_driveway
+    - delay: '00:01:00'
+    - service: camera.enable_motion_detection
       data:
         entity_id: camera.blink_back_patio
