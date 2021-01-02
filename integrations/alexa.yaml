@@ -41,6 +41,7 @@ alexa:
         - switch.morning_alarm
         - switch.test_tplink
         - switch.everett_switch_right
+        - switch.wemo_switch
         - climate.upstairs_ac
         - climate.downstairs_ac
         - fan.everetts_fan
@@ -135,4 +136,6 @@ alexa:
         name: Elliptical
       switch.everett_switch_right:
         name: Everett's night light
+      switch.wemo_switch:
+        name: Everett's Heater
 
