@@ -56,11 +56,14 @@ alexa:
         - alert
         - automation
         - binary_sensor
+        - camera
         - climate
         - cover
         - fan
         - group
         - input_boolean
+        - input_number
+        - image_processing
         - light
         - lock
         - media_player
@@ -68,6 +71,7 @@ alexa:
         - script
         - sensor
         - switch
+        - timer
         - vacuum
     entity_config:
       light.atrium:
