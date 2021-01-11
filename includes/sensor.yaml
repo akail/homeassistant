@@ -16,6 +16,10 @@
     alarm_mode:
       value_template: '{{ states.input_select.alarm_mode.state }}'
       friendly_name: 'Alarm Mode'
+    last_alexa:
+      value_template: >
+        {{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
+        # Example: https://github.com/custom-components/alexa_media_player/wiki/Examples%3A-Automation#last-alexa-sensor
 
 # Arlo baby camera
 - platform: aarlo
