@@ -13,12 +13,11 @@ everetts_room:
     - switch.sound_machine
     - switch.everett_switch_right
 
-group:
-  echos:
-    name: Echo
-    entities:
-      - media_player.andrew_s_echo
-      - media_player.andrew_s_echo_dot
-      - media_player.everett_s_dot
-      - media_player.office_dot
-      - media_player.tv_room_echo_dot
+echos:
+  name: Echo
+  entities:
+    - media_player.andrew_s_echo
+    - media_player.andrew_s_echo_dot
+    - media_player.everett_s_dot
+    - media_player.office_dot
+    - media_player.tv_room_echo_dot
