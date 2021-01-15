@@ -19,7 +19,6 @@
     last_alexa:
       value_template: >
         {{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
-        # Example: https://github.com/custom-components/alexa_media_player/wiki/Examples%3A-Automation#last-alexa-sensor
 
 # Arlo baby camera
 - platform: aarlo
@@ -43,6 +42,14 @@
   api_key: !secret steam_api_key
   accounts:
     - 76561198024717521
+
+
+# Tracking entity to entity
+- platform: waze_travel_time
+  name: "Andrew to home"
+  origin: device_tracker.moto_g_6
+  destination: zone.home
+  region: 'US'
 
 
 # Tracking entity to entity

@@ -57,9 +57,9 @@
           {%- endif %}
         target_temp_low: >
           {%- if is_state('input_select.presence', 'Home') %}
-            68
+            70
           {%- elif is_state('input_select.presence', 'Away') %}
-            66
+            67
           {%- else %}
             64
           {%- endif %}
@@ -124,12 +124,12 @@
           {%- endif %}
         target_temp_low: >
           {%- if is_state('input_select.guest_mode', 'True') %}
-            69
+            70
           {%- else %}
             {%- if is_state('input_select.presence', 'Home') %}
-              68
+              70
             {%- elif is_state('input_select.presence', 'Away') %}
-              66
+              67
             {%- else %}
               64
             {%- endif %}

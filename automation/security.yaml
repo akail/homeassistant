@@ -44,3 +44,22 @@
       at: '05:30:00'
   action:
     - service: script.blink_home
+
+- alias: 'Security off after waking up'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.master_bedroom_door
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: time
+      after: '05:30:00'
+    - condition: state
+      entity_id: alarm_control_panel.2_gippy_ct_alarm_control_panel
+      state: "armed_home"
+    - condition: state
+      entity_id: input_select.presence
+      state: 'Home'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.2_gippy_ct_alarm_control_panel
