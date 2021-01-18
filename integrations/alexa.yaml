@@ -42,9 +42,11 @@ alexa:
         - switch.test_tplink
         - switch.everett_switch_right
         - switch.wemo_switch
+        - switch.bedroom_light
         - climate.upstairs_ac
         - climate.downstairs_ac
         - fan.everetts_fan
+        - fan.bedroom
         - media_player.bedroom
         - media_player.garage
         - media_player.kitchen
@@ -145,3 +147,7 @@ alexa:
         name: Everett's Heater
       script.baby_bedtime:
         name: Baby Bedtime
+      fan.bedroom:
+        name: Bedroom Fan
+      switch.bedroom_light:
+        name: Bedroom Light
