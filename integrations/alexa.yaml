@@ -150,4 +150,4 @@ alexa:
       fan.bedroom:
         name: Bedroom Fan
       switch.bedroom_light:
-        name: Bedroom Light
+        name: Bedroom Fan Light
