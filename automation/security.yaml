@@ -54,6 +54,7 @@
   condition:
     - condition: time
       after: '05:30:00'
+      before: '07:00:00'
     - condition: state
       entity_id: alarm_control_panel.2_gippy_ct_alarm_control_panel
       state: "armed_home"
