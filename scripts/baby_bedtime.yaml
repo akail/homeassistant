@@ -1,0 +1,26 @@
+---
+# This bedtime script will turn off lights in the baby's room in a slow sequence
+baby_bedtime:
+  alias: Baby Bedtime
+  sequence:
+    - service: light.turn_on
+      entity_id: light.everett_s_crib
+    - service: light.turn_off
+      entity_id: light.everett_s_lamp
+    - service: light.turn_on
+      entity_id: light.everetts_color_light
+    - service: fan.turn_on
+      entity_id: fan.everetts_fan
+    - service: switch.turn_off
+      entity_id: switch.everetts_fan_light
+    - service: switch.turn_on
+      entity_id: switch.sound_machine
+    - service: switch.turn_on
+      entity_id: switch.everett_switch_right
+
+    - delay: '00:02:00'
+    - service: light.turn_off
+      entity_id: light.everetts_color_light
+    - delay: '00:02:00'
+    - service: light.turn_off
+      entity_id: light.everett_s_crib

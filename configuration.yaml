@@ -35,6 +35,7 @@ http:
 group: !include includes/groups.yaml
 automation: !include_dir_merge_list automation/
 script: !include_dir_merge_named scripts/
+scene: !include_dir_merge_list scenes/
 zone: !include includes/zones.yaml
 sensor: !include includes/sensor.yaml
 binary_sensor: !include includes/binary_sensor.yaml

@@ -11,6 +11,9 @@ alexa:
             Maggie is {{states('sensor.maggie_to_home')|float - states.device_tracker.maggie_s_iphone_2.last_changed.minute}}
           {%- endif %}
   smart_home:
+    endpoint: https://api.amazonalexa.com/v3/events
+    client_id: amzn1.application-oa2-client.821030effb014c24b1a6f7b230537355
+    client_secret: ab27384951a97fb5717031b1c87976ae0bd2b35dc176213e881a3d92d902fe69
     filter:
       include_entities:
         - light.atrium
@@ -54,6 +57,7 @@ alexa:
         - media_player.spare_room
         - media_player.tcl_tv
         - script.baby_bedtime
+        - scene.night_mode
       exclude_domains:
         - alarm_control_panel
         - alert
@@ -151,3 +155,5 @@ alexa:
         name: Bedroom Fan
       switch.bedroom_light:
         name: Bedroom Fan Light
+      scene.night_mode:
+        name: Night Mode
