@@ -1,31 +1,31 @@
 ---
 - name: Night Mode
-    entities:
-      alarm_control_panel.2_gippy_ct: "armed_home"
-      binary_sensor.blink_back_patio_camera_armed: on
-      binary_sensor.blink_driveway_camera_armed: on
-      binary_sensor.blink_front_porch_camera_armed: on
-      binary_sensor.blink_garage_camera_armed: on
+  entities:
+    alarm_control_panel.2_gippy_ct: "armed_home"
+    binary_sensor.blink_back_patio_camera_armed: on
+    binary_sensor.blink_driveway_camera_armed: on
+    binary_sensor.blink_front_porch_camera_armed: on
+    binary_sensor.blink_garage_camera_armed: on
 
-      light.atrium: off
-      light.andrews_tv_room_light: off
-      light.maggies_tv_room_light: off
+    light.atrium: off
+    light.andrews_tv_room_light: off
+    light.maggies_tv_room_light: off
 
-      light.living_room_lamp: off
-      switch.living_room_lamp: off
-      switch.driveway_lights: off
-      switch.garage_lights: off
-      switch.front_porch: off
-      light.desk_lamp: off
-      light.dining_room_hutch: off
-      light.dining_room_switch: off
+    light.living_room_lamp: off
+    switch.living_room_lamp: off
+    switch.driveway_lights: off
+    switch.garage_lights: off
+    switch.front_porch: off
+    light.desk_lamp: off
+    light.dining_room_hutch: off
+    light.dining_room_switch: off
 
-      light.andrew_bedside_lamp:
-        state: "on"
-        brightness: 77
-      light.maggies_bedside_lamp:
-        state: "on"
-        brightness: 77
-      light.bedroom_lamp:
-        state: "on"
-        brightness: 77
+    light.andrew_bedside_lamp:
+      state: "on"
+      brightness: 77
+    light.maggies_bedside_lamp:
+      state: "on"
+      brightness: 77
+    light.bedroom_lamp:
+      state: "on"
+      brightness: 77
