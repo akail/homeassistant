@@ -1,0 +1,14 @@
+---
+- platform: template
+  switches:
+    garage_door:
+      friendly_name: Garage Door Switch
+      value_template: "{{ is_state('input_boolean.vacuum_ready_to_clean', 'on')}}"
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.garage_relay_1
+      turn_off:
+        service: switch.turn_on
+        data:
+          entity_id: switch.garage_relay_1
