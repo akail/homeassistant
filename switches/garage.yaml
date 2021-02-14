@@ -3,7 +3,8 @@
   switches:
     garage_door:
       friendly_name: Garage Door Switch
-      value_template: "{{ is_state('input_boolean.vacuum_ready_to_clean', 'on')}}"
+      entity_id: switch.garage_door
+      value_template: "{{ is_state('binary_sensor.garage_door_detector_sensor', 'on')}}"
       turn_on:
         service: switch.turn_on
         data:
