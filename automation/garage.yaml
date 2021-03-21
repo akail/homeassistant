@@ -1,0 +1,27 @@
+---
+- alias: Notify garage door is open
+  trigger:
+    - platform: state
+      entity_id: input_select.presence
+  condition:
+    - condition: or
+      conditions:
+        - condition: state
+          entity_id: input_select.presence
+          state: 'Extended Away'
+        - condition: state
+          entity_id: input_select.presence
+          state: 'Away'
+    - condition: state
+      
+- alias: Turn of garage relay1
+  trigger:
+    - platform: state
+      entity_id: switch.garage_relay_1
+      to: "on"
+      for:
+        seconds: 15
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.garage_relay_1
