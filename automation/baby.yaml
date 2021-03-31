@@ -51,8 +51,6 @@
       entity_id: input_select.everett_status_dropdown
       from: "Home"
   action:
-    - service: switch.turn_off
-      entity_id: switch.sound_machine
     - service: light.turn_off
       entity_id: light.everetts_color_light
     - service: light.turn_off
@@ -77,8 +75,6 @@
   action:
     - delay: '00:20:00'
       # turn on scene
-    - service: switch.turn_on
-      entity_id: switch.sound_machine
     - service: light.turn_on
       entity_id: light.everetts_color_light
     - service: light.turn_on
@@ -91,3 +87,29 @@
       entity_id: fan.everetts_fan
     - service: switch.turn_on
       entity_id: switch.wemo_switch
+    - service: switch.turn_on
+      entity_id: switch.everett_switch_right
+
+
+
+- alias: "Nursery thermostat away mode"
+  trigger:
+    - platform: state
+      entity_id: input_select.everett_status_dropdown
+      from: "Home"
+  action:
+    - service: climate.set_hvac_mode
+      target:
+        entity_id: climate.nursery
+      data: off
+
+- alias: "Nursery thermostat home mode"
+  trigger:
+    - platform: state
+      entity_id: input_select.everett_status_dropdown
+      to: "Home"
+  action:
+    - service: climate.set_hvac_mode
+      target:
+        entity_id: climate.nursery
+      data: heat
