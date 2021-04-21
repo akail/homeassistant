@@ -1,7 +1,6 @@
 ---
 - name: Night Mode
   entities:
-    alarm_control_panel.2_gippy_ct: "armed_home"
     binary_sensor.blink_back_patio_camera_armed: on
     binary_sensor.blink_driveway_camera_armed: on
     binary_sensor.blink_front_porch_camera_armed: on
@@ -19,6 +18,7 @@
     light.desk_lamp: off
     light.dining_room_hutch: off
     light.dining_room_switch: off
+    switch.everett_switch_right: off
 
     light.andrew_bedside_lamp:
       state: "on"
