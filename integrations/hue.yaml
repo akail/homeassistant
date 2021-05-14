@@ -1,0 +1,10 @@
+---
+emulated_hue:
+  listen_port: 80
+  entities:
+    light.andrews_tv_room_light:
+      name: Andrew's Lamp
+    light.maggies_tv_room_light:
+      name: Maggie's Lamp
+    group.tv_room:
+      name: TV Room brightness
