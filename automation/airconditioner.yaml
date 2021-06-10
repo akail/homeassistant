@@ -14,6 +14,14 @@
     - platform: state
       entity_id: input_select.guest_mode
   action:
+    - service: climate.set_hvac_mode
+      entity_id: climate.downstairs_ac
+      data:
+        hvac_mode: heat_cool
+    - service: climate.set_hvac_mode
+      entity_id: climate.upstairs_ac
+      data:
+        hvac_mode: heat_cool
     - service: climate.set_temperature
       data_template:
         entity_id: climate.downstairs_ac
