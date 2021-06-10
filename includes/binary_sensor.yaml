@@ -27,3 +27,9 @@
 
 - platform: workday
   country: US
+
+
+- platform: octoprint
+  monitored_conditions:
+    - Printing
+    - Printing Error

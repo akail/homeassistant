@@ -1,0 +1,7 @@
+---
+octoprint:
+  host: 192.168.2.216
+  api_key: !secret octoprint_api_key
+  name: "Creality 3V2"
+  bed: True
+  number_of_tools: 2

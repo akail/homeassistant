@@ -4,3 +4,8 @@
 #    username: !secret foscam_username
 #    password: !secret foscam_password
 - platform: aarlo
+
+- platform: mjpeg
+  name: OctoPrint
+  still_image_url: http://192.168.2.216/webcam/?action=snapshot
+  mjpeg_url: http://192.168.2.216/webcam/?action=stream
