@@ -27,7 +27,7 @@
       for:
         minutes: 30
   action:
-    - action: switch.turn_off
+    - service: switch.turn_off
       entity_id: switch.ender_printer
     - service: light.turn_off
       entity_id: light.desk_leds
