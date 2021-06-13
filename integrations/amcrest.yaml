@@ -1,0 +1,9 @@
+amcrest:
+  - host: 192.168.2.177
+    name: TV Room
+    username: !secret amcrest_username
+    password: !secret amcrest_password
+    binary_sensors:
+      - online
+    stream_source: rtsp
+

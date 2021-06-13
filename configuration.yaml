@@ -17,6 +17,8 @@ discovery:
 
 mobile_app:
 
+ffmpeg:
+
 ios:
 
 # Text to speech
