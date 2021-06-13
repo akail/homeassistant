@@ -18,3 +18,16 @@
   action:
     - service: light.turn_off
       entity_id: light.desk_leds
+
+- alias: "Printer off after 30 minutes"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.creality_3v2_printing
+      to: 'off'
+      for:
+        minutes: 30
+  action:
+    - action: switch.turn_off
+      entity_id: switch.ender_printer
+    - service: light.turn_off
+      entity_id: light.desk_leds
