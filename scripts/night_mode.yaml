@@ -12,7 +12,7 @@ night_mode:
       entity_id: binary_sensor.blink_garage_camera_armed
 
     - service: light.turn_off
-      entity_id: light.atrium: off
+      entity_id: light.atrium
     - service: light.turn_off
       entity_id: light.andrews_tv_room_light
     - service: light.turn_off
